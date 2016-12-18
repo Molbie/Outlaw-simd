@@ -40,3 +40,10 @@ extension matrix_float2x2: Serializable {
         return result
     }
 }
+
+extension matrix_float2x2: IndexSerializable {
+    public func serialized() -> [[Float]] {
+        return [self.columns.0.serialized(),
+                self.columns.1.serialized()]
+    }
+}

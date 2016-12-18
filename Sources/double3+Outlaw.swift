@@ -43,3 +43,9 @@ extension double3: Serializable {
         return result
     }
 }
+
+extension double3: IndexSerializable {
+    public func serialized() -> [Double] {
+        return [self.x, self.y, self.z]
+    }
+}

@@ -43,3 +43,11 @@ extension float3x2: Serializable {
         return result
     }
 }
+
+extension float3x2: IndexSerializable {
+    public func serialized() -> [[Float]] {
+        return [self[0].serialized(),
+                self[1].serialized(),
+                self[2].serialized()]
+    }
+}

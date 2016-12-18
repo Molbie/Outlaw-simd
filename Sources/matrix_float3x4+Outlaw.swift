@@ -43,3 +43,11 @@ extension matrix_float3x4: Serializable {
         return result
     }
 }
+
+extension matrix_float3x4: IndexSerializable {
+    public func serialized() -> [[Float]] {
+        return [self.columns.0.serialized(),
+                self.columns.1.serialized(),
+                self.columns.2.serialized()]
+    }
+}

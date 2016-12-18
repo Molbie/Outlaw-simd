@@ -46,3 +46,12 @@ extension double4x4: Serializable {
         return result
     }
 }
+
+extension double4x4: IndexSerializable {
+    public func serialized() -> [[Double]] {
+        return [self[0].serialized(),
+                self[1].serialized(),
+                self[2].serialized(),
+                self[3].serialized()]
+    }
+}

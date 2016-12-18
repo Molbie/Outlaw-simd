@@ -40,3 +40,9 @@ extension int2: Serializable {
         return result
     }
 }
+
+extension int2: IndexSerializable {
+    public func serialized() -> [Int32] {
+        return [self.x, self.y]
+    }
+}

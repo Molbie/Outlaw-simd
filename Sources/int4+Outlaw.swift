@@ -46,3 +46,9 @@ extension int4: Serializable {
         return result
     }
 }
+
+extension int4: IndexSerializable {
+    public func serialized() -> [Int32] {
+        return [self.x, self.y, self.z, self.w]
+    }
+}

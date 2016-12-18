@@ -40,3 +40,10 @@ extension float2x4: Serializable {
         return result
     }
 }
+
+extension float2x4: IndexSerializable {
+    public func serialized() -> [[Float]] {
+        return [self[0].serialized(),
+                self[1].serialized()]
+    }
+}

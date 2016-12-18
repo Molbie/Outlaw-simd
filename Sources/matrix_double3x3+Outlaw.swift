@@ -43,3 +43,11 @@ extension matrix_double3x3: Serializable {
         return result
     }
 }
+
+extension matrix_double3x3: IndexSerializable {
+    public func serialized() -> [[Double]] {
+        return [self.columns.0.serialized(),
+                self.columns.1.serialized(),
+                self.columns.2.serialized()]
+    }
+}

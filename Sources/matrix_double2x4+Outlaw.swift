@@ -40,3 +40,10 @@ extension matrix_double2x4: Serializable {
         return result
     }
 }
+
+extension matrix_double2x4: IndexSerializable {
+    public func serialized() -> [[Double]] {
+        return [self.columns.0.serialized(),
+                self.columns.1.serialized()]
+    }
+}
