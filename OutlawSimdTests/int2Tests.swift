@@ -14,12 +14,15 @@ import Outlaw
 
 class int2Tests: XCTestCase {
     func testExtractableValue() {
-        let rawData: [String: Int32] = ["x": 1, "y": 2]
+        typealias keys = int2.ExtractableKeys
+        
+        let rawData: [String: Int32] = [keys.x: 1,
+                                        keys.y: 2]
         let data: [String: [String: Int32]] = ["value": rawData]
         let value: int2 = try! data.value(for: "value")
         
-        XCTAssertEqual(value.x, rawData["x"])
-        XCTAssertEqual(value.y, rawData["y"])
+        XCTAssertEqual(value.x, rawData[keys.x])
+        XCTAssertEqual(value.y, rawData[keys.y])
     }
     
     func testIndexExtractableValue() {
@@ -48,11 +51,13 @@ class int2Tests: XCTestCase {
     }
     
     func testSerializable() {
+        typealias keys = int2.ExtractableKeys
+        
         let value = int2(x: 1, y: 2)
         let data: [String: Int32] = value.serialized()
         
-        XCTAssertEqual(data["x"], value.x)
-        XCTAssertEqual(data["y"], value.y)
+        XCTAssertEqual(data[keys.x], value.x)
+        XCTAssertEqual(data[keys.y], value.y)
     }
     
     func testIndexSerializable() {

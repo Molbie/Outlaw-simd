@@ -14,20 +14,26 @@ import Outlaw
 
 class double3x2Tests: XCTestCase {
     func testExtractableValue() {
-        let rawData: [String: [String: Double]] = ["c0": ["x": 0, "y": 10],
-                                                   "c1": ["x": 1, "y": 11],
-                                                   "c2": ["x": 2, "y": 12]]
+        typealias keys = double3x2.ExtractableKeys
+        typealias subkeys = double2.ExtractableKeys
+        
+        let rawData: [String: [String: Double]] = [keys.column0: [subkeys.x: 0,
+                                                                  subkeys.y: 10],
+                                                   keys.column1: [subkeys.x: 1,
+                                                                  subkeys.y: 11],
+                                                   keys.column2: [subkeys.x: 2,
+                                                                  subkeys.y: 12]]
         let data: [String: [String: [String: Double]]] = ["value": rawData]
         let value: double3x2 = try! data.value(for: "value")
         
-        XCTAssertEqual(value[0].x, rawData["c0"]?["x"])
-        XCTAssertEqual(value[0].y, rawData["c0"]?["y"])
+        XCTAssertEqual(value[0].x, rawData[keys.column0]?[subkeys.x])
+        XCTAssertEqual(value[0].y, rawData[keys.column0]?[subkeys.y])
         
-        XCTAssertEqual(value[1].x, rawData["c1"]?["x"])
-        XCTAssertEqual(value[1].y, rawData["c1"]?["y"])
+        XCTAssertEqual(value[1].x, rawData[keys.column1]?[subkeys.x])
+        XCTAssertEqual(value[1].y, rawData[keys.column1]?[subkeys.y])
         
-        XCTAssertEqual(value[2].x, rawData["c2"]?["x"])
-        XCTAssertEqual(value[2].y, rawData["c2"]?["y"])
+        XCTAssertEqual(value[2].x, rawData[keys.column2]?[subkeys.x])
+        XCTAssertEqual(value[2].y, rawData[keys.column2]?[subkeys.y])
     }
     
     func testIndexExtractableValue() {
@@ -64,19 +70,22 @@ class double3x2Tests: XCTestCase {
     }
     
     func testSerializable() {
+        typealias keys = double3x2.ExtractableKeys
+        typealias subkeys = double2.ExtractableKeys
+        
         let value = double3x2([double2(0, 10),
                                double2(1, 11),
                                double2(2, 12)])
         let data: [String: [String: Double]] = value.serialized()
         
-        XCTAssertEqual(data["c0"]?["x"], value[0].x)
-        XCTAssertEqual(data["c0"]?["y"], value[0].y)
+        XCTAssertEqual(data[keys.column0]?[subkeys.x], value[0].x)
+        XCTAssertEqual(data[keys.column0]?[subkeys.y], value[0].y)
         
-        XCTAssertEqual(data["c1"]?["x"], value[1].x)
-        XCTAssertEqual(data["c1"]?["y"], value[1].y)
+        XCTAssertEqual(data[keys.column1]?[subkeys.x], value[1].x)
+        XCTAssertEqual(data[keys.column1]?[subkeys.y], value[1].y)
         
-        XCTAssertEqual(data["c2"]?["x"], value[2].x)
-        XCTAssertEqual(data["c2"]?["y"], value[2].y)
+        XCTAssertEqual(data[keys.column2]?[subkeys.x], value[2].x)
+        XCTAssertEqual(data[keys.column2]?[subkeys.y], value[2].y)
     }
     
     func testIndexSerializable() {

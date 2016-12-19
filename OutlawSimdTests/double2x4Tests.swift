@@ -14,20 +14,29 @@ import Outlaw
 
 class double2x4Tests: XCTestCase {
     func testExtractableValue() {
-        let rawData: [String: [String: Double]] = ["c0": ["x": 0, "y": 10, "z": 20, "w": 30],
-                                                   "c1": ["x": 1, "y": 11, "z": 21, "w": 31]]
+        typealias keys = double2x4.ExtractableKeys
+        typealias subkeys = double4.ExtractableKeys
+        
+        let rawData: [String: [String: Double]] = [keys.column0: [subkeys.x: 0,
+                                                                  subkeys.y: 10,
+                                                                  subkeys.z: 20,
+                                                                  subkeys.w: 30],
+                                                   keys.column1: [subkeys.x: 1,
+                                                                  subkeys.y: 11,
+                                                                  subkeys.z: 21,
+                                                                  subkeys.w: 31]]
         let data: [String: [String: [String: Double]]] = ["value": rawData]
         let value: double2x4 = try! data.value(for: "value")
         
-        XCTAssertEqual(value[0].x, rawData["c0"]?["x"])
-        XCTAssertEqual(value[0].y, rawData["c0"]?["y"])
-        XCTAssertEqual(value[0].z, rawData["c0"]?["z"])
-        XCTAssertEqual(value[0].w, rawData["c0"]?["w"])
+        XCTAssertEqual(value[0].x, rawData[keys.column0]?[subkeys.x])
+        XCTAssertEqual(value[0].y, rawData[keys.column0]?[subkeys.y])
+        XCTAssertEqual(value[0].z, rawData[keys.column0]?[subkeys.z])
+        XCTAssertEqual(value[0].w, rawData[keys.column0]?[subkeys.w])
         
-        XCTAssertEqual(value[1].x, rawData["c1"]?["x"])
-        XCTAssertEqual(value[1].y, rawData["c1"]?["y"])
-        XCTAssertEqual(value[1].z, rawData["c1"]?["z"])
-        XCTAssertEqual(value[1].w, rawData["c1"]?["w"])
+        XCTAssertEqual(value[1].x, rawData[keys.column1]?[subkeys.x])
+        XCTAssertEqual(value[1].y, rawData[keys.column1]?[subkeys.y])
+        XCTAssertEqual(value[1].z, rawData[keys.column1]?[subkeys.z])
+        XCTAssertEqual(value[1].w, rawData[keys.column1]?[subkeys.w])
     }
     
     func testIndexExtractableValue() {
@@ -64,19 +73,22 @@ class double2x4Tests: XCTestCase {
     }
     
     func testSerializable() {
+        typealias keys = double2x4.ExtractableKeys
+        typealias subkeys = double4.ExtractableKeys
+        
         let value = double2x4([double4(0, 10, 20, 30),
                                double4(1, 11, 21, 31)])
         let data: [String: [String: Double]] = value.serialized()
         
-        XCTAssertEqual(data["c0"]?["x"], value[0].x)
-        XCTAssertEqual(data["c0"]?["y"], value[0].y)
-        XCTAssertEqual(data["c0"]?["z"], value[0].z)
-        XCTAssertEqual(data["c0"]?["w"], value[0].w)
+        XCTAssertEqual(data[keys.column0]?[subkeys.x], value[0].x)
+        XCTAssertEqual(data[keys.column0]?[subkeys.y], value[0].y)
+        XCTAssertEqual(data[keys.column0]?[subkeys.z], value[0].z)
+        XCTAssertEqual(data[keys.column0]?[subkeys.w], value[0].w)
         
-        XCTAssertEqual(data["c1"]?["x"], value[1].x)
-        XCTAssertEqual(data["c1"]?["y"], value[1].y)
-        XCTAssertEqual(data["c1"]?["z"], value[1].z)
-        XCTAssertEqual(data["c1"]?["w"], value[1].w)
+        XCTAssertEqual(data[keys.column1]?[subkeys.x], value[1].x)
+        XCTAssertEqual(data[keys.column1]?[subkeys.y], value[1].y)
+        XCTAssertEqual(data[keys.column1]?[subkeys.z], value[1].z)
+        XCTAssertEqual(data[keys.column1]?[subkeys.w], value[1].w)
     }
     
     func testIndexSerializable() {

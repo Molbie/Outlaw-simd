@@ -10,13 +10,24 @@ import simd
 import Outlaw
 
 
+public extension float4x3 {
+    public struct ExtractableKeys {
+        public static let column0 = "0"
+        public static let column1 = "1"
+        public static let column2 = "2"
+        public static let column3 = "3"
+    }
+}
+
 extension float4x3: Value {
     public static func value(from object: Any) throws -> float4x3 {
         if let data = object as? Extractable {
-            let col0: float3 = try data.value(for: "c0")
-            let col1: float3 = try data.value(for: "c1")
-            let col2: float3 = try data.value(for: "c2")
-            let col3: float3 = try data.value(for: "c3")
+            typealias keys = float4x3.ExtractableKeys
+            
+            let col0: float3 = try data.value(for: keys.column0)
+            let col1: float3 = try data.value(for: keys.column1)
+            let col2: float3 = try data.value(for: keys.column2)
+            let col3: float3 = try data.value(for: keys.column3)
             
             return float4x3([col0, col1, col2, col3])
         }
@@ -37,11 +48,13 @@ extension float4x3: Value {
 
 extension float4x3: Serializable {
     public func serialized() -> [String: [String: Float]] {
+        typealias keys = float4x3.ExtractableKeys
+        
         var result = [String: [String: Float]]()
-        result["c0"] = self[0].serialized()
-        result["c1"] = self[1].serialized()
-        result["c2"] = self[2].serialized()
-        result["c3"] = self[3].serialized()
+        result[keys.column0] = self[0].serialized()
+        result[keys.column1] = self[1].serialized()
+        result[keys.column2] = self[2].serialized()
+        result[keys.column3] = self[3].serialized()
         
         return result
     }

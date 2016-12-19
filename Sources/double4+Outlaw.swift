@@ -10,13 +10,24 @@ import simd
 import Outlaw
 
 
+public extension double4 {
+    public struct ExtractableKeys {
+        public static let x = "x"
+        public static let y = "y"
+        public static let z = "z"
+        public static let w = "w"
+    }
+}
+
 extension double4: Value {
     public static func value(from object: Any) throws -> double4 {
         if let data = object as? Extractable {
-            let x: Double = try data.value(for: "x")
-            let y: Double = try data.value(for: "y")
-            let z: Double = try data.value(for: "z")
-            let w: Double = try data.value(for: "w")
+            typealias keys = double4.ExtractableKeys
+            
+            let x: Double = try data.value(for: keys.x)
+            let y: Double = try data.value(for: keys.y)
+            let z: Double = try data.value(for: keys.z)
+            let w: Double = try data.value(for: keys.w)
             
             return double4(x: x, y: y, z: z, w: w)
         }
@@ -37,11 +48,13 @@ extension double4: Value {
 
 extension double4: Serializable {
     public func serialized() -> [String: Double] {
+        typealias keys = double4.ExtractableKeys
+        
         var result = [String: Double]()
-        result["x"] = self.x
-        result["y"] = self.y
-        result["z"] = self.z
-        result["w"] = self.w
+        result[keys.x] = self.x
+        result[keys.y] = self.y
+        result[keys.z] = self.z
+        result[keys.w] = self.w
         
         return result
     }

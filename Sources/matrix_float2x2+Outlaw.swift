@@ -10,11 +10,20 @@ import simd
 import Outlaw
 
 
+public extension matrix_float2x2 {
+    public struct ExtractableKeys {
+        public static let column0 = "0"
+        public static let column1 = "1"
+    }
+}
+
 extension matrix_float2x2: Value {
     public static func value(from object: Any) throws -> matrix_float2x2 {
         if let data = object as? Extractable {
-            let col0: vector_float2 = try data.value(for: "c0")
-            let col1: vector_float2 = try data.value(for: "c1")
+            typealias keys = matrix_float2x2.ExtractableKeys
+            
+            let col0: vector_float2 = try data.value(for: keys.column0)
+            let col1: vector_float2 = try data.value(for: keys.column1)
             
             return matrix_float2x2(columns: (col0, col1))
         }
@@ -33,9 +42,11 @@ extension matrix_float2x2: Value {
 
 extension matrix_float2x2: Serializable {
     public func serialized() -> [String: [String: Float]] {
+        typealias keys = matrix_float2x2.ExtractableKeys
+        
         var result = [String: [String: Float]]()
-        result["c0"] = self.columns.0.serialized()
-        result["c1"] = self.columns.1.serialized()
+        result[keys.column0] = self.columns.0.serialized()
+        result[keys.column1] = self.columns.1.serialized()
         
         return result
     }

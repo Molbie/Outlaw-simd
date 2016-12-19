@@ -14,13 +14,17 @@ import Outlaw
 
 class double3Tests: XCTestCase {
     func testExtractableValue() {
-        let rawData: [String: Double] = ["x": 1, "y": 2, "z": 3]
+        typealias keys = double3.ExtractableKeys
+        
+        let rawData: [String: Double] = [keys.x: 1,
+                                         keys.y: 2,
+                                         keys.z: 3]
         let data: [String: [String: Double]] = ["value": rawData]
         let value: double3 = try! data.value(for: "value")
         
-        XCTAssertEqual(value.x, rawData["x"])
-        XCTAssertEqual(value.y, rawData["y"])
-        XCTAssertEqual(value.z, rawData["z"])
+        XCTAssertEqual(value.x, rawData[keys.x])
+        XCTAssertEqual(value.y, rawData[keys.y])
+        XCTAssertEqual(value.z, rawData[keys.z])
     }
     
     func testIndexExtractableValue() {
@@ -50,12 +54,14 @@ class double3Tests: XCTestCase {
     }
     
     func testSerializable() {
+        typealias keys = double3.ExtractableKeys
+        
         let value = double3(x: 1, y: 2, z: 3)
         let data: [String: Double] = value.serialized()
         
-        XCTAssertEqual(data["x"], value.x)
-        XCTAssertEqual(data["y"], value.y)
-        XCTAssertEqual(data["z"], value.z)
+        XCTAssertEqual(data[keys.x], value.x)
+        XCTAssertEqual(data[keys.y], value.y)
+        XCTAssertEqual(data[keys.z], value.z)
     }
     
     func testIndexSerializable() {

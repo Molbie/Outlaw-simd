@@ -14,28 +14,39 @@ import Outlaw
 
 class matrix_float4x3Tests: XCTestCase {
     func testExtractableValue() {
-        let rawData: [String: [String: Float]] = ["c0": ["x": 0, "y": 10, "z": 20],
-                                                  "c1": ["x": 1, "y": 11, "z": 21],
-                                                  "c2": ["x": 2, "y": 12, "z": 22],
-                                                  "c3": ["x": 3, "y": 13, "z": 23]]
+        typealias keys = matrix_float4x3.ExtractableKeys
+        typealias subkeys = vector_float3.ExtractableKeys
+        
+        let rawData: [String: [String: Float]] = [keys.column0: [subkeys.x: 0,
+                                                                 subkeys.y: 10,
+                                                                 subkeys.z: 20],
+                                                  keys.column1: [subkeys.x: 1,
+                                                                 subkeys.y: 11,
+                                                                 subkeys.z: 21],
+                                                  keys.column2: [subkeys.x: 2,
+                                                                 subkeys.y: 12,
+                                                                 subkeys.z: 22],
+                                                  keys.column3: [subkeys.x: 3,
+                                                                 subkeys.y: 13,
+                                                                 subkeys.z: 23]]
         let data: [String: [String: [String: Float]]] = ["value": rawData]
         let value: matrix_float4x3 = try! data.value(for: "value")
         
-        XCTAssertEqual(value.columns.0.x, rawData["c0"]?["x"])
-        XCTAssertEqual(value.columns.0.y, rawData["c0"]?["y"])
-        XCTAssertEqual(value.columns.0.z, rawData["c0"]?["z"])
+        XCTAssertEqual(value.columns.0.x, rawData[keys.column0]?[subkeys.x])
+        XCTAssertEqual(value.columns.0.y, rawData[keys.column0]?[subkeys.y])
+        XCTAssertEqual(value.columns.0.z, rawData[keys.column0]?[subkeys.z])
         
-        XCTAssertEqual(value.columns.1.x, rawData["c1"]?["x"])
-        XCTAssertEqual(value.columns.1.y, rawData["c1"]?["y"])
-        XCTAssertEqual(value.columns.1.z, rawData["c1"]?["z"])
+        XCTAssertEqual(value.columns.1.x, rawData[keys.column1]?[subkeys.x])
+        XCTAssertEqual(value.columns.1.y, rawData[keys.column1]?[subkeys.y])
+        XCTAssertEqual(value.columns.1.z, rawData[keys.column1]?[subkeys.z])
         
-        XCTAssertEqual(value.columns.2.x, rawData["c2"]?["x"])
-        XCTAssertEqual(value.columns.2.y, rawData["c2"]?["y"])
-        XCTAssertEqual(value.columns.2.z, rawData["c2"]?["z"])
+        XCTAssertEqual(value.columns.2.x, rawData[keys.column2]?[subkeys.x])
+        XCTAssertEqual(value.columns.2.y, rawData[keys.column2]?[subkeys.y])
+        XCTAssertEqual(value.columns.2.z, rawData[keys.column2]?[subkeys.z])
         
-        XCTAssertEqual(value.columns.3.x, rawData["c3"]?["x"])
-        XCTAssertEqual(value.columns.3.y, rawData["c3"]?["y"])
-        XCTAssertEqual(value.columns.3.z, rawData["c3"]?["z"])
+        XCTAssertEqual(value.columns.3.x, rawData[keys.column3]?[subkeys.x])
+        XCTAssertEqual(value.columns.3.y, rawData[keys.column3]?[subkeys.y])
+        XCTAssertEqual(value.columns.3.z, rawData[keys.column3]?[subkeys.z])
     }
     
     func testIndexExtractableValue() {
@@ -80,27 +91,30 @@ class matrix_float4x3Tests: XCTestCase {
     }
     
     func testSerializable() {
+        typealias keys = matrix_float4x3.ExtractableKeys
+        typealias subkeys = vector_float3.ExtractableKeys
+        
         let value = matrix_float4x3(columns: (vector_float3(0, 10, 20),
                                               vector_float3(1, 11, 21),
                                               vector_float3(2, 12, 22),
                                               vector_float3(3, 13, 23)))
         let data: [String: [String: Float]] = value.serialized()
         
-        XCTAssertEqual(data["c0"]?["x"], value.columns.0.x)
-        XCTAssertEqual(data["c0"]?["y"], value.columns.0.y)
-        XCTAssertEqual(data["c0"]?["z"], value.columns.0.z)
+        XCTAssertEqual(data[keys.column0]?[subkeys.x], value.columns.0.x)
+        XCTAssertEqual(data[keys.column0]?[subkeys.y], value.columns.0.y)
+        XCTAssertEqual(data[keys.column0]?[subkeys.z], value.columns.0.z)
         
-        XCTAssertEqual(data["c1"]?["x"], value.columns.1.x)
-        XCTAssertEqual(data["c1"]?["y"], value.columns.1.y)
-        XCTAssertEqual(data["c1"]?["z"], value.columns.1.z)
+        XCTAssertEqual(data[keys.column1]?[subkeys.x], value.columns.1.x)
+        XCTAssertEqual(data[keys.column1]?[subkeys.y], value.columns.1.y)
+        XCTAssertEqual(data[keys.column1]?[subkeys.z], value.columns.1.z)
         
-        XCTAssertEqual(data["c2"]?["x"], value.columns.2.x)
-        XCTAssertEqual(data["c2"]?["y"], value.columns.2.y)
-        XCTAssertEqual(data["c2"]?["z"], value.columns.2.z)
+        XCTAssertEqual(data[keys.column2]?[subkeys.x], value.columns.2.x)
+        XCTAssertEqual(data[keys.column2]?[subkeys.y], value.columns.2.y)
+        XCTAssertEqual(data[keys.column2]?[subkeys.z], value.columns.2.z)
         
-        XCTAssertEqual(data["c3"]?["x"], value.columns.3.x)
-        XCTAssertEqual(data["c3"]?["y"], value.columns.3.y)
-        XCTAssertEqual(data["c3"]?["z"], value.columns.3.z)
+        XCTAssertEqual(data[keys.column3]?[subkeys.x], value.columns.3.x)
+        XCTAssertEqual(data[keys.column3]?[subkeys.y], value.columns.3.y)
+        XCTAssertEqual(data[keys.column3]?[subkeys.z], value.columns.3.z)
     }
     
     func testIndexSerializable() {

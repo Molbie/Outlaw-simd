@@ -10,11 +10,20 @@ import simd
 import Outlaw
 
 
+public extension double2 {
+    public struct ExtractableKeys {
+        public static let x = "x"
+        public static let y = "y"
+    }
+}
+
 extension double2: Value {
     public static func value(from object: Any) throws -> double2 {
         if let data = object as? Extractable {
-            let x: Double = try data.value(for: "x")
-            let y: Double = try data.value(for: "y")
+            typealias keys = double2.ExtractableKeys
+            
+            let x: Double = try data.value(for: keys.x)
+            let y: Double = try data.value(for: keys.y)
             
             return double2(x: x, y: y)
         }
@@ -33,9 +42,11 @@ extension double2: Value {
 
 extension double2: Serializable {
     public func serialized() -> [String: Double] {
+        typealias keys = double2.ExtractableKeys
+        
         var result = [String: Double]()
-        result["x"] = self.x
-        result["y"] = self.y
+        result[keys.x] = self.x
+        result[keys.y] = self.y
         
         return result
     }

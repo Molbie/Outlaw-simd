@@ -10,12 +10,22 @@ import simd
 import Outlaw
 
 
+public extension double3x2 {
+    public struct ExtractableKeys {
+        public static let column0 = "0"
+        public static let column1 = "1"
+        public static let column2 = "2"
+    }
+}
+
 extension double3x2: Value {
     public static func value(from object: Any) throws -> double3x2 {
         if let data = object as? Extractable {
-            let col0: double2 = try data.value(for: "c0")
-            let col1: double2 = try data.value(for: "c1")
-            let col2: double2 = try data.value(for: "c2")
+            typealias keys = double3x2.ExtractableKeys
+            
+            let col0: double2 = try data.value(for: keys.column0)
+            let col1: double2 = try data.value(for: keys.column1)
+            let col2: double2 = try data.value(for: keys.column2)
             
             return double3x2([col0, col1, col2])
         }
@@ -35,10 +45,12 @@ extension double3x2: Value {
 
 extension double3x2: Serializable {
     public func serialized() -> [String: [String: Double]] {
+        typealias keys = double3x2.ExtractableKeys
+        
         var result = [String: [String: Double]]()
-        result["c0"] = self[0].serialized()
-        result["c1"] = self[1].serialized()
-        result["c2"] = self[2].serialized()
+        result[keys.column0] = self[0].serialized()
+        result[keys.column1] = self[1].serialized()
+        result[keys.column2] = self[2].serialized()
         
         return result
     }

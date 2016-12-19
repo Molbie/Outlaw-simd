@@ -14,14 +14,19 @@ import Outlaw
 
 class int4Tests: XCTestCase {
     func testExtractableValue() {
-        let rawData: [String: Int32] = ["x": 1, "y": 2, "z": 3, "w": 4]
+        typealias keys = int4.ExtractableKeys
+        
+        let rawData: [String: Int32] = [keys.x: 1,
+                                        keys.y: 2,
+                                        keys.z: 3,
+                                        keys.w: 4]
         let data: [String: [String: Int32]] = ["value": rawData]
         let value: int4 = try! data.value(for: "value")
         
-        XCTAssertEqual(value.x, rawData["x"])
-        XCTAssertEqual(value.y, rawData["y"])
-        XCTAssertEqual(value.z, rawData["z"])
-        XCTAssertEqual(value.w, rawData["w"])
+        XCTAssertEqual(value.x, rawData[keys.x])
+        XCTAssertEqual(value.y, rawData[keys.y])
+        XCTAssertEqual(value.z, rawData[keys.z])
+        XCTAssertEqual(value.w, rawData[keys.w])
     }
     
     func testIndexExtractableValue() {
@@ -52,13 +57,15 @@ class int4Tests: XCTestCase {
     }
     
     func testSerializable() {
+        typealias keys = int4.ExtractableKeys
+        
         let value = int4(x: 1, y: 2, z: 3, w: 4)
         let data: [String: Int32] = value.serialized()
         
-        XCTAssertEqual(data["x"], value.x)
-        XCTAssertEqual(data["y"], value.y)
-        XCTAssertEqual(data["z"], value.z)
-        XCTAssertEqual(data["w"], value.w)
+        XCTAssertEqual(data[keys.x], value.x)
+        XCTAssertEqual(data[keys.y], value.y)
+        XCTAssertEqual(data[keys.z], value.z)
+        XCTAssertEqual(data[keys.w], value.w)
     }
     
     func testIndexSerializable() {

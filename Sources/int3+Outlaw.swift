@@ -10,12 +10,22 @@ import simd
 import Outlaw
 
 
+public extension int3 {
+    public struct ExtractableKeys {
+        public static let x = "x"
+        public static let y = "y"
+        public static let z = "z"
+    }
+}
+
 extension int3: Value {
     public static func value(from object: Any) throws -> int3 {
         if let data = object as? Extractable {
-            let x: Int32 = try data.value(for: "x")
-            let y: Int32 = try data.value(for: "y")
-            let z: Int32 = try data.value(for: "z")
+            typealias keys = int3.ExtractableKeys
+            
+            let x: Int32 = try data.value(for: keys.x)
+            let y: Int32 = try data.value(for: keys.y)
+            let z: Int32 = try data.value(for: keys.z)
             
             return int3(x: x, y: y, z: z)
         }
@@ -35,10 +45,12 @@ extension int3: Value {
 
 extension int3: Serializable {
     public func serialized() -> [String: Int32] {
+        typealias keys = int3.ExtractableKeys
+        
         var result = [String: Int32]()
-        result["x"] = self.x
-        result["y"] = self.y
-        result["z"] = self.z
+        result[keys.x] = self.x
+        result[keys.y] = self.y
+        result[keys.z] = self.z
         
         return result
     }
