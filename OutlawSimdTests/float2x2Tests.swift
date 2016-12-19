@@ -13,10 +13,12 @@ import Outlaw
 
 
 class float2x2Tests: XCTestCase {
+    fileprivate typealias keys = float2x2.ExtractableKeys
+    fileprivate typealias subkeys = float2.ExtractableKeys
+    fileprivate typealias indexes = float2x2.ExtractableIndexes
+    fileprivate typealias subindexes = float2.ExtractableIndexes
+    
     func testExtractableValue() {
-        typealias keys = float2x2.ExtractableKeys
-        typealias subkeys = float2.ExtractableKeys
-        
         let rawData: [String: [String: Float]] = [keys.column0: [subkeys.x: 0,
                                                                  subkeys.y: 10],
                                                   keys.column1: [subkeys.x: 1,
@@ -32,9 +34,6 @@ class float2x2Tests: XCTestCase {
     }
     
     func testIndexExtractableValue() {
-        typealias indexes = float2x2.ExtractableIndexes
-        typealias subindexes = float2.ExtractableIndexes
-        
         var rawData0 = [Float](repeating: 0, count: 2)
         rawData0[subindexes.x] = 0
         rawData0[subindexes.y] = 10
@@ -73,9 +72,6 @@ class float2x2Tests: XCTestCase {
     }
     
     func testSerializable() {
-        typealias keys = float2x2.ExtractableKeys
-        typealias subkeys = float2.ExtractableKeys
-        
         let value = float2x2([float2(0, 10),
                               float2(1, 11)])
         let data: [String: [String: Float]] = value.serialized()
@@ -88,9 +84,6 @@ class float2x2Tests: XCTestCase {
     }
     
     func testIndexSerializable() {
-        typealias indexes = float2x2.ExtractableIndexes
-        typealias subindexes = float2.ExtractableIndexes
-        
         let value = float2x2([float2(0, 10),
                               float2(1, 11)])
         let data: [[Float]] = value.serialized()

@@ -19,21 +19,19 @@ public extension matrix_double2x3 {
         public static let column0: Int = 0
         public static let column1: Int = 1
     }
+    fileprivate typealias keys = matrix_double2x3.ExtractableKeys
+    fileprivate typealias indexes = matrix_double2x3.ExtractableIndexes
 }
 
 extension matrix_double2x3: Value {
     public static func value(from object: Any) throws -> matrix_double2x3 {
         if let data = object as? Extractable {
-            typealias keys = matrix_double2x3.ExtractableKeys
-            
             let col0: vector_double3 = try data.value(for: keys.column0)
             let col1: vector_double3 = try data.value(for: keys.column1)
             
             return matrix_double2x3(columns: (col0, col1))
         }
         else if let data = object as? IndexExtractable {
-            typealias indexes = matrix_double2x3.ExtractableIndexes
-            
             let col0: vector_double3 = try data.value(for: indexes.column0)
             let col1: vector_double3 = try data.value(for: indexes.column1)
             
@@ -48,8 +46,6 @@ extension matrix_double2x3: Value {
 
 extension matrix_double2x3: Serializable {
     public func serialized() -> [String: [String: Double]] {
-        typealias keys = matrix_double2x3.ExtractableKeys
-        
         var result = [String: [String: Double]]()
         result[keys.column0] = self.columns.0.serialized()
         result[keys.column1] = self.columns.1.serialized()
@@ -60,8 +56,6 @@ extension matrix_double2x3: Serializable {
 
 extension matrix_double2x3: IndexSerializable {
     public func serialized() -> [[Double]] {
-        typealias indexes = matrix_double2x3.ExtractableIndexes
-        
         var result = [[Double]](repeating: [0], count: 2)
         result[indexes.column0] = self.columns.0.serialized()
         result[indexes.column1] = self.columns.1.serialized()

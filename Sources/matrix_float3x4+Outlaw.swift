@@ -21,13 +21,13 @@ public extension matrix_float3x4 {
         public static let column1: Int = 1
         public static let column2: Int = 2
     }
+    fileprivate typealias keys = matrix_float3x4.ExtractableKeys
+    fileprivate typealias indexes = matrix_float3x4.ExtractableIndexes
 }
 
 extension matrix_float3x4: Value {
     public static func value(from object: Any) throws -> matrix_float3x4 {
         if let data = object as? Extractable {
-            typealias keys = matrix_float3x4.ExtractableKeys
-            
             let col0: vector_float4 = try data.value(for: keys.column0)
             let col1: vector_float4 = try data.value(for: keys.column1)
             let col2: vector_float4 = try data.value(for: keys.column2)
@@ -35,8 +35,6 @@ extension matrix_float3x4: Value {
             return matrix_float3x4(columns: (col0, col1, col2))
         }
         else if let data = object as? IndexExtractable {
-            typealias indexes = matrix_float3x4.ExtractableIndexes
-            
             let col0: vector_float4 = try data.value(for: indexes.column0)
             let col1: vector_float4 = try data.value(for: indexes.column1)
             let col2: vector_float4 = try data.value(for: indexes.column2)
@@ -52,8 +50,6 @@ extension matrix_float3x4: Value {
 
 extension matrix_float3x4: Serializable {
     public func serialized() -> [String: [String: Float]] {
-        typealias keys = matrix_float3x4.ExtractableKeys
-        
         var result = [String: [String: Float]]()
         result[keys.column0] = self.columns.0.serialized()
         result[keys.column1] = self.columns.1.serialized()
@@ -65,8 +61,6 @@ extension matrix_float3x4: Serializable {
 
 extension matrix_float3x4: IndexSerializable {
     public func serialized() -> [[Float]] {
-        typealias indexes = matrix_float3x4.ExtractableIndexes
-        
         var result = [[Float]](repeating: [0], count: 3)
         result[indexes.column0] = self.columns.0.serialized()
         result[indexes.column1] = self.columns.1.serialized()

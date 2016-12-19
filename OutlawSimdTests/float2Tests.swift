@@ -13,9 +13,10 @@ import Outlaw
 
 
 class float2Tests: XCTestCase {
+    fileprivate typealias keys = float2.ExtractableKeys
+    fileprivate typealias indexes = float2.ExtractableIndexes
+    
     func testExtractableValue() {
-        typealias keys = float2.ExtractableKeys
-        
         let rawData: [String: Float] = [keys.x: 1,
                                         keys.y: 2]
         let data: [String: [String: Float]] = ["value": rawData]
@@ -26,8 +27,6 @@ class float2Tests: XCTestCase {
     }
     
     func testIndexExtractableValue() {
-        typealias indexes = float2.ExtractableIndexes
-        
         var rawData = [Float](repeating: 0, count: 2)
         rawData[indexes.x] = 1
         rawData[indexes.y] = 2
@@ -56,8 +55,6 @@ class float2Tests: XCTestCase {
     }
     
     func testSerializable() {
-        typealias keys = float2.ExtractableKeys
-        
         let value = float2(x: 1, y: 2)
         let data: [String: Float] = value.serialized()
         
@@ -66,8 +63,6 @@ class float2Tests: XCTestCase {
     }
     
     func testIndexSerializable() {
-        typealias indexes = float2.ExtractableIndexes
-        
         let value = float2(x: 1, y: 2)
         let data: [Float] = value.serialized()
         

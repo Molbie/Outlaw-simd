@@ -13,10 +13,12 @@ import Outlaw
 
 
 class matrix_float2x4Tests: XCTestCase {
+    fileprivate typealias keys = matrix_float2x4.ExtractableKeys
+    fileprivate typealias subkeys = vector_float4.ExtractableKeys
+    fileprivate typealias indexes = matrix_float2x4.ExtractableIndexes
+    fileprivate typealias subindexes = vector_float4.ExtractableIndexes
+    
     func testExtractableValue() {
-        typealias keys = matrix_float2x4.ExtractableKeys
-        typealias subkeys = vector_float4.ExtractableKeys
-        
         let rawData: [String: [String: Float]] = [keys.column0: [subkeys.x: 0,
                                                                  subkeys.y: 10,
                                                                  subkeys.z: 20,
@@ -40,9 +42,6 @@ class matrix_float2x4Tests: XCTestCase {
     }
     
     func testIndexExtractableValue() {
-        typealias indexes = matrix_float2x4.ExtractableIndexes
-        typealias subindexes = vector_float4.ExtractableIndexes
-        
         var rawData0 = [Float](repeating: 0, count: 4)
         rawData0[subindexes.x] = 0
         rawData0[subindexes.y] = 10
@@ -89,9 +88,6 @@ class matrix_float2x4Tests: XCTestCase {
     }
     
     func testSerializable() {
-        typealias keys = matrix_float2x4.ExtractableKeys
-        typealias subkeys = vector_float4.ExtractableKeys
-        
         let value = matrix_float2x4(columns: (vector_float4(0, 10, 20, 30),
                                               vector_float4(1, 11, 21, 31)))
         let data: [String: [String: Float]] = value.serialized()
@@ -108,9 +104,6 @@ class matrix_float2x4Tests: XCTestCase {
     }
     
     func testIndexSerializable() {
-        typealias indexes = matrix_float2x4.ExtractableIndexes
-        typealias subindexes = vector_float4.ExtractableIndexes
-        
         let value = matrix_float2x4(columns: (vector_float4(0, 10, 20, 30),
                                               vector_float4(1, 11, 21, 31)))
         let data: [[Float]] = value.serialized()

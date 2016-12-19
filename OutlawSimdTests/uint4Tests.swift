@@ -13,9 +13,10 @@ import Outlaw
 
 
 class uint4Tests: XCTestCase {
+    fileprivate typealias keys = uint4.ExtractableKeys
+    fileprivate typealias indexes = uint4.ExtractableIndexes
+    
     func testExtractableValue() {
-        typealias keys = uint4.ExtractableKeys
-        
         let rawData: [String: UInt32] = [keys.x: 1,
                                          keys.y: 2,
                                          keys.z: 3,
@@ -30,8 +31,6 @@ class uint4Tests: XCTestCase {
     }
     
     func testIndexExtractableValue() {
-        typealias indexes = uint4.ExtractableIndexes
-        
         var rawData = [UInt32](repeating: 0, count: 4)
         rawData[indexes.x] = 1
         rawData[indexes.y] = 2
@@ -64,8 +63,6 @@ class uint4Tests: XCTestCase {
     }
     
     func testSerializable() {
-        typealias keys = uint4.ExtractableKeys
-        
         let value = uint4(x: 1, y: 2, z: 3, w: 4)
         let data: [String: UInt32] = value.serialized()
         
@@ -76,8 +73,6 @@ class uint4Tests: XCTestCase {
     }
     
     func testIndexSerializable() {
-        typealias indexes = uint4.ExtractableIndexes
-        
         let value = uint4(x: 1, y: 2, z: 3, w: 4)
         let data: [UInt32] = value.serialized()
         

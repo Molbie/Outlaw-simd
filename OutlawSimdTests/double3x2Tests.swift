@@ -13,10 +13,12 @@ import Outlaw
 
 
 class double3x2Tests: XCTestCase {
+    fileprivate typealias keys = double3x2.ExtractableKeys
+    fileprivate typealias subkeys = double2.ExtractableKeys
+    fileprivate typealias indexes = double3x2.ExtractableIndexes
+    fileprivate typealias subindexes = double2.ExtractableIndexes
+    
     func testExtractableValue() {
-        typealias keys = double3x2.ExtractableKeys
-        typealias subkeys = double2.ExtractableKeys
-        
         let rawData: [String: [String: Double]] = [keys.column0: [subkeys.x: 0,
                                                                   subkeys.y: 10],
                                                    keys.column1: [subkeys.x: 1,
@@ -37,9 +39,6 @@ class double3x2Tests: XCTestCase {
     }
     
     func testIndexExtractableValue() {
-        typealias indexes = double3x2.ExtractableIndexes
-        typealias subindexes = double2.ExtractableIndexes
-        
         var rawData0 = [Double](repeating: 0, count: 2)
         rawData0[subindexes.x] = 0
         rawData0[subindexes.y] = 10
@@ -85,9 +84,6 @@ class double3x2Tests: XCTestCase {
     }
     
     func testSerializable() {
-        typealias keys = double3x2.ExtractableKeys
-        typealias subkeys = double2.ExtractableKeys
-        
         let value = double3x2([double2(0, 10),
                                double2(1, 11),
                                double2(2, 12)])
@@ -104,9 +100,6 @@ class double3x2Tests: XCTestCase {
     }
     
     func testIndexSerializable() {
-        typealias indexes = double3x2.ExtractableIndexes
-        typealias subindexes = double2.ExtractableIndexes
-        
         let value = double3x2([double2(0, 10),
                                double2(1, 11),
                                double2(2, 12)])

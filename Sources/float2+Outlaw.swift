@@ -19,21 +19,19 @@ public extension float2 {
         public static let x: Int = 0
         public static let y: Int = 1
     }
+    fileprivate typealias keys = float2.ExtractableKeys
+    fileprivate typealias indexes = float2.ExtractableIndexes
 }
 
 extension float2: Value {
     public static func value(from object: Any) throws -> float2 {
         if let data = object as? Extractable {
-            typealias keys = float2.ExtractableKeys
-            
             let x: Float = try data.value(for: keys.x)
             let y: Float = try data.value(for: keys.y)
             
             return float2(x: x, y: y)
         }
         else if let data = object as? IndexExtractable {
-            typealias indexes = float2.ExtractableIndexes
-            
             let x: Float = try data.value(for: indexes.x)
             let y: Float = try data.value(for: indexes.y)
             
@@ -48,8 +46,6 @@ extension float2: Value {
 
 extension float2: Serializable {
     public func serialized() -> [String: Float] {
-        typealias keys = float2.ExtractableKeys
-        
         var result = [String: Float]()
         result[keys.x] = self.x
         result[keys.y] = self.y
@@ -60,8 +56,6 @@ extension float2: Serializable {
 
 extension float2: IndexSerializable {
     public func serialized() -> [Float] {
-        typealias indexes = float2.ExtractableIndexes
-        
         var result = [Float](repeating: 0, count: 2)
         result[indexes.x] = self.x
         result[indexes.y] = self.y

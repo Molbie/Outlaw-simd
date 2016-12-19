@@ -23,13 +23,13 @@ public extension float4x2 {
         public static let column2: Int = 2
         public static let column3: Int = 3
     }
+    fileprivate typealias keys = float4x2.ExtractableKeys
+    fileprivate typealias indexes = float4x2.ExtractableIndexes
 }
 
 extension float4x2: Value {
     public static func value(from object: Any) throws -> float4x2 {
         if let data = object as? Extractable {
-            typealias keys = float4x2.ExtractableKeys
-            
             let col0: float2 = try data.value(for: keys.column0)
             let col1: float2 = try data.value(for: keys.column1)
             let col2: float2 = try data.value(for: keys.column2)
@@ -38,8 +38,6 @@ extension float4x2: Value {
             return float4x2([col0, col1, col2, col3])
         }
         else if let data = object as? IndexExtractable {
-            typealias indexes = float4x2.ExtractableIndexes
-            
             let col0: float2 = try data.value(for: indexes.column0)
             let col1: float2 = try data.value(for: indexes.column1)
             let col2: float2 = try data.value(for: indexes.column2)
@@ -56,8 +54,6 @@ extension float4x2: Value {
 
 extension float4x2: Serializable {
     public func serialized() -> [String: [String: Float]] {
-        typealias keys = float4x2.ExtractableKeys
-        
         var result = [String: [String: Float]]()
         result[keys.column0] = self[0].serialized()
         result[keys.column1] = self[1].serialized()
@@ -70,8 +66,6 @@ extension float4x2: Serializable {
 
 extension float4x2: IndexSerializable {
     public func serialized() -> [[Float]] {
-        typealias indexes = float4x2.ExtractableIndexes
-        
         var result = [[Float]](repeating: [0], count: 4)
         result[indexes.column0] = self[0].serialized()
         result[indexes.column1] = self[1].serialized()

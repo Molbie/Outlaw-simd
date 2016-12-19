@@ -21,13 +21,13 @@ public extension double3x3 {
         public static let column1: Int = 1
         public static let column2: Int = 2
     }
+    fileprivate typealias keys = double3x3.ExtractableKeys
+    fileprivate typealias indexes = double3x3.ExtractableIndexes
 }
 
 extension double3x3: Value {
     public static func value(from object: Any) throws -> double3x3 {
         if let data = object as? Extractable {
-            typealias keys = double3x3.ExtractableKeys
-            
             let col0: double3 = try data.value(for: keys.column0)
             let col1: double3 = try data.value(for: keys.column1)
             let col2: double3 = try data.value(for: keys.column2)
@@ -35,8 +35,6 @@ extension double3x3: Value {
             return double3x3([col0, col1, col2])
         }
         else if let data = object as? IndexExtractable {
-            typealias indexes = double3x3.ExtractableIndexes
-            
             let col0: double3 = try data.value(for: indexes.column0)
             let col1: double3 = try data.value(for: indexes.column1)
             let col2: double3 = try data.value(for: indexes.column2)
@@ -52,8 +50,6 @@ extension double3x3: Value {
 
 extension double3x3: Serializable {
     public func serialized() -> [String: [String: Double]] {
-        typealias keys = double3x3.ExtractableKeys
-        
         var result = [String: [String: Double]]()
         result[keys.column0] = self[0].serialized()
         result[keys.column1] = self[1].serialized()
@@ -65,8 +61,6 @@ extension double3x3: Serializable {
 
 extension double3x3: IndexSerializable {
     public func serialized() -> [[Double]] {
-        typealias indexes = double3x3.ExtractableIndexes
-        
         var result = [[Double]](repeating: [0], count: 3)
         result[indexes.column0] = self[0].serialized()
         result[indexes.column1] = self[1].serialized()

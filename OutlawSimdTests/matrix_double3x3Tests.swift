@@ -13,10 +13,12 @@ import Outlaw
 
 
 class matrix_double3x3Tests: XCTestCase {
+    fileprivate typealias keys = matrix_double3x3.ExtractableKeys
+    fileprivate typealias subkeys = vector_double3.ExtractableKeys
+    fileprivate typealias indexes = matrix_double3x3.ExtractableIndexes
+    fileprivate typealias subindexes = vector_double3.ExtractableIndexes
+    
     func testExtractableValue() {
-        typealias keys = matrix_double3x3.ExtractableKeys
-        typealias subkeys = vector_double3.ExtractableKeys
-        
         let rawData: [String: [String: Double]] = [keys.column0: [subkeys.x: 0,
                                                                   subkeys.y: 10,
                                                                   subkeys.z: 20],
@@ -43,9 +45,6 @@ class matrix_double3x3Tests: XCTestCase {
     }
     
     func testIndexExtractableValue() {
-        typealias indexes = matrix_double3x3.ExtractableIndexes
-        typealias subindexes = vector_double3.ExtractableIndexes
-        
         var rawData0 = [Double](repeating: 0, count: 3)
         rawData0[subindexes.x] = 0
         rawData0[subindexes.y] = 10
@@ -97,9 +96,6 @@ class matrix_double3x3Tests: XCTestCase {
     }
     
     func testSerializable() {
-        typealias keys = matrix_double3x3.ExtractableKeys
-        typealias subkeys = vector_double3.ExtractableKeys
-        
         let value = matrix_double3x3(columns: (vector_double3(0, 10, 20),
                                                vector_double3(1, 11, 21),
                                                vector_double3(2, 12, 22)))
@@ -119,9 +115,6 @@ class matrix_double3x3Tests: XCTestCase {
     }
     
     func testIndexSerializable() {
-        typealias indexes = matrix_double3x3.ExtractableIndexes
-        typealias subindexes = vector_double3.ExtractableIndexes
-        
         let value = matrix_double3x3(columns: (vector_double3(0, 10, 20),
                                                vector_double3(1, 11, 21),
                                                vector_double3(2, 12, 22)))

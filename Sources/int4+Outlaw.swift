@@ -23,13 +23,13 @@ public extension int4 {
         public static let z: Int = 2
         public static let w: Int = 3
     }
+    fileprivate typealias keys = int4.ExtractableKeys
+    fileprivate typealias indexes = int4.ExtractableIndexes
 }
 
 extension int4: Value {
     public static func value(from object: Any) throws -> int4 {
         if let data = object as? Extractable {
-            typealias keys = int4.ExtractableKeys
-            
             let x: Int32 = try data.value(for: keys.x)
             let y: Int32 = try data.value(for: keys.y)
             let z: Int32 = try data.value(for: keys.z)
@@ -38,8 +38,6 @@ extension int4: Value {
             return int4(x: x, y: y, z: z, w: w)
         }
         else if let data = object as? IndexExtractable {
-            typealias indexes = int4.ExtractableIndexes
-            
             let x: Int32 = try data.value(for: indexes.x)
             let y: Int32 = try data.value(for: indexes.y)
             let z: Int32 = try data.value(for: indexes.z)
@@ -56,8 +54,6 @@ extension int4: Value {
 
 extension int4: Serializable {
     public func serialized() -> [String: Int32] {
-        typealias keys = int4.ExtractableKeys
-        
         var result = [String: Int32]()
         result[keys.x] = self.x
         result[keys.y] = self.y
@@ -70,8 +66,6 @@ extension int4: Serializable {
 
 extension int4: IndexSerializable {
     public func serialized() -> [Int32] {
-        typealias indexes = int4.ExtractableIndexes
-        
         var result = [Int32](repeating: 0, count: 4)
         result[indexes.x] = self.x
         result[indexes.y] = self.y
