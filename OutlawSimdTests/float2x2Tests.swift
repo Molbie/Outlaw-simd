@@ -74,7 +74,7 @@ class float2x2Tests: XCTestCase {
     func testSerializable() {
         let value = float2x2([float2(0, 10),
                               float2(1, 11)])
-        let data: [String: [String: Float]] = value.serialized()
+        let data = value.serialized()
         
         XCTAssertEqual(data[keys.column0]?[subkeys.x], value[0].x)
         XCTAssertEqual(data[keys.column0]?[subkeys.y], value[0].y)
@@ -86,7 +86,7 @@ class float2x2Tests: XCTestCase {
     func testIndexSerializable() {
         let value = float2x2([float2(0, 10),
                               float2(1, 11)])
-        let data: [[Float]] = value.serialized()
+        let data = value.serializedIndexes()
         
         XCTAssertEqual(data[indexes.column0][subindexes.x], value[0].x)
         XCTAssertEqual(data[indexes.column0][subindexes.y], value[0].y)

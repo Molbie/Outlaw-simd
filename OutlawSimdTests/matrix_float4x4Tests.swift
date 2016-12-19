@@ -132,7 +132,7 @@ class matrix_float4x4Tests: XCTestCase {
                                               vector_float4(1, 11, 21, 31),
                                               vector_float4(2, 12, 22, 32),
                                               vector_float4(3, 13, 23, 33)))
-        let data: [String: [String: Float]] = value.serialized()
+        let data = value.serialized()
         
         XCTAssertEqual(data[keys.column0]?[subkeys.x], value.columns.0.x)
         XCTAssertEqual(data[keys.column0]?[subkeys.y], value.columns.0.y)
@@ -160,7 +160,7 @@ class matrix_float4x4Tests: XCTestCase {
                                               vector_float4(1, 11, 21, 31),
                                               vector_float4(2, 12, 22, 32),
                                               vector_float4(3, 13, 23, 33)))
-        let data: [[Float]] = value.serialized()
+        let data = value.serializedIndexes()
         
         XCTAssertEqual(data[indexes.column0][subindexes.x], value.columns.0.x)
         XCTAssertEqual(data[indexes.column0][subindexes.y], value.columns.0.y)

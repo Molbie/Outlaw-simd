@@ -99,7 +99,7 @@ class matrix_float3x3Tests: XCTestCase {
         let value = matrix_float3x3(columns: (vector_float3(0, 10, 20),
                                               vector_float3(1, 11, 21),
                                               vector_float3(2, 12, 22)))
-        let data: [String: [String: Float]] = value.serialized()
+        let data = value.serialized()
         
         XCTAssertEqual(data[keys.column0]?[subkeys.x], value.columns.0.x)
         XCTAssertEqual(data[keys.column0]?[subkeys.y], value.columns.0.y)
@@ -118,7 +118,7 @@ class matrix_float3x3Tests: XCTestCase {
         let value = matrix_float3x3(columns: (vector_float3(0, 10, 20),
                                               vector_float3(1, 11, 21),
                                               vector_float3(2, 12, 22)))
-        let data: [[Float]] = value.serialized()
+        let data = value.serializedIndexes()
         
         XCTAssertEqual(data[indexes.column0][subindexes.x], value.columns.0.x)
         XCTAssertEqual(data[indexes.column0][subindexes.y], value.columns.0.y)

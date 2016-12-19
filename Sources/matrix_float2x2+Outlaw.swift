@@ -55,10 +55,10 @@ extension matrix_float2x2: Serializable {
 }
 
 extension matrix_float2x2: IndexSerializable {
-    public func serialized() -> [[Float]] {
+    public func serializedIndexes() -> [[Float]] {
         var result = [[Float]](repeating: [0], count: 2)
-        result[indexes.column0] = self.columns.0.serialized()
-        result[indexes.column1] = self.columns.1.serialized()
+        result[indexes.column0] = self.columns.0.serializedIndexes()
+        result[indexes.column1] = self.columns.1.serializedIndexes()
         
         return result
     }

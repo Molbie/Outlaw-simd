@@ -56,7 +56,7 @@ class double2Tests: XCTestCase {
     
     func testSerializable() {
         let value = double2(x: 1, y: 2)
-        let data: [String: Double] = value.serialized()
+        let data = value.serialized()
         
         XCTAssertEqual(data[keys.x], value.x)
         XCTAssertEqual(data[keys.y], value.y)
@@ -64,7 +64,7 @@ class double2Tests: XCTestCase {
     
     func testIndexSerializable() {
         let value = double2(x: 1, y: 2)
-        let data: [Double] = value.serialized()
+        let data = value.serializedIndexes()
         
         XCTAssertEqual(data[indexes.x], value.x)
         XCTAssertEqual(data[indexes.y], value.y)

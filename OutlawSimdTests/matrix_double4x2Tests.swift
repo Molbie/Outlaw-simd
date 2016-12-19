@@ -100,7 +100,7 @@ class matrix_double4x2Tests: XCTestCase {
                                                vector_double2(1, 11),
                                                vector_double2(2, 12),
                                                vector_double2(3, 13)))
-        let data: [String: [String: Double]] = value.serialized()
+        let data = value.serialized()
         
         XCTAssertEqual(data[keys.column0]?[subkeys.x], value.columns.0.x)
         XCTAssertEqual(data[keys.column0]?[subkeys.y], value.columns.0.y)
@@ -120,7 +120,7 @@ class matrix_double4x2Tests: XCTestCase {
                                                vector_double2(1, 11),
                                                vector_double2(2, 12),
                                                vector_double2(3, 13)))
-        let data: [[Double]] = value.serialized()
+        let data = value.serializedIndexes()
         
         XCTAssertEqual(data[indexes.column0][subindexes.x], value.columns.0.x)
         XCTAssertEqual(data[indexes.column0][subindexes.y], value.columns.0.y)

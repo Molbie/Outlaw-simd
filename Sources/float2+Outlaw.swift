@@ -55,7 +55,7 @@ extension float2: Serializable {
 }
 
 extension float2: IndexSerializable {
-    public func serialized() -> [Float] {
+    public func serializedIndexes() -> [Float] {
         var result = [Float](repeating: 0, count: 2)
         result[indexes.x] = self.x
         result[indexes.y] = self.y

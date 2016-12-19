@@ -55,10 +55,10 @@ extension float2x4: Serializable {
 }
 
 extension float2x4: IndexSerializable {
-    public func serialized() -> [[Float]] {
+    public func serializedIndexes() -> [[Float]] {
         var result = [[Float]](repeating: [0], count: 2)
-        result[indexes.column0] = self[0].serialized()
-        result[indexes.column1] = self[1].serialized()
+        result[indexes.column0] = self[0].serializedIndexes()
+        result[indexes.column1] = self[1].serializedIndexes()
         
         return result
     }

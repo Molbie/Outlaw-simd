@@ -65,7 +65,7 @@ extension uint4: Serializable {
 }
 
 extension uint4: IndexSerializable {
-    public func serialized() -> [UInt32] {
+    public func serializedIndexes() -> [UInt32] {
         var result = [UInt32](repeating: 0, count: 4)
         result[indexes.x] = self.x
         result[indexes.y] = self.y

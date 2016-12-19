@@ -60,7 +60,7 @@ class float3Tests: XCTestCase {
     
     func testSerializable() {
         let value = float3(x: 1, y: 2, z: 3)
-        let data: [String: Float] = value.serialized()
+        let data = value.serialized()
         
         XCTAssertEqual(data[keys.x], value.x)
         XCTAssertEqual(data[keys.y], value.y)
@@ -69,7 +69,7 @@ class float3Tests: XCTestCase {
     
     func testIndexSerializable() {
         let value = float3(x: 1, y: 2, z: 3)
-        let data: [Float] = value.serialized()
+        let data = value.serializedIndexes()
         
         XCTAssertEqual(data[indexes.x], value.x)
         XCTAssertEqual(data[indexes.y], value.y)

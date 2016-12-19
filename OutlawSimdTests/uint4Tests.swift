@@ -64,7 +64,7 @@ class uint4Tests: XCTestCase {
     
     func testSerializable() {
         let value = uint4(x: 1, y: 2, z: 3, w: 4)
-        let data: [String: UInt32] = value.serialized()
+        let data = value.serialized()
         
         XCTAssertEqual(data[keys.x], value.x)
         XCTAssertEqual(data[keys.y], value.y)
@@ -74,7 +74,7 @@ class uint4Tests: XCTestCase {
     
     func testIndexSerializable() {
         let value = uint4(x: 1, y: 2, z: 3, w: 4)
-        let data: [UInt32] = value.serialized()
+        let data = value.serializedIndexes()
         
         XCTAssertEqual(data[indexes.x], value.x)
         XCTAssertEqual(data[indexes.y], value.y)

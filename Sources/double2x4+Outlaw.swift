@@ -55,10 +55,10 @@ extension double2x4: Serializable {
 }
 
 extension double2x4: IndexSerializable {
-    public func serialized() -> [[Double]] {
+    public func serializedIndexes() -> [[Double]] {
         var result = [[Double]](repeating: [0], count: 2)
-        result[indexes.column0] = self[0].serialized()
-        result[indexes.column1] = self[1].serialized()
+        result[indexes.column0] = self[0].serializedIndexes()
+        result[indexes.column1] = self[1].serializedIndexes()
         
         return result
     }

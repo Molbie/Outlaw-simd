@@ -87,7 +87,7 @@ class float3x2Tests: XCTestCase {
         let value = float3x2([float2(0, 10),
                               float2(1, 11),
                               float2(2, 12)])
-        let data: [String: [String: Float]] = value.serialized()
+        let data = value.serialized()
         
         XCTAssertEqual(data[keys.column0]?[subkeys.x], value[0].x)
         XCTAssertEqual(data[keys.column0]?[subkeys.y], value[0].y)
@@ -103,7 +103,7 @@ class float3x2Tests: XCTestCase {
         let value = float3x2([float2(0, 10),
                               float2(1, 11),
                               float2(2, 12)])
-        let data: [[Float]] = value.serialized()
+        let data = value.serializedIndexes()
         
         XCTAssertEqual(data[indexes.column0][subindexes.x], value[0].x)
         XCTAssertEqual(data[indexes.column0][subindexes.y], value[0].y)

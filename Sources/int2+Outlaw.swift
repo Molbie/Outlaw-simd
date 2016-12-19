@@ -55,7 +55,7 @@ extension int2: Serializable {
 }
 
 extension int2: IndexSerializable {
-    public func serialized() -> [Int32] {
+    public func serializedIndexes() -> [Int32] {
         var result = [Int32](repeating: 0, count: 2)
         result[indexes.x] = self.x
         result[indexes.y] = self.y

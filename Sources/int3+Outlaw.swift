@@ -60,7 +60,7 @@ extension int3: Serializable {
 }
 
 extension int3: IndexSerializable {
-    public func serialized() -> [Int32] {
+    public func serializedIndexes() -> [Int32] {
         var result = [Int32](repeating: 0, count: 3)
         result[indexes.x] = self.x
         result[indexes.y] = self.y

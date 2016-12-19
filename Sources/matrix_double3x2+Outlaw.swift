@@ -60,11 +60,11 @@ extension matrix_double3x2: Serializable {
 }
 
 extension matrix_double3x2: IndexSerializable {
-    public func serialized() -> [[Double]] {
+    public func serializedIndexes() -> [[Double]] {
         var result = [[Double]](repeating: [0], count: 3)
-        result[indexes.column0] = self.columns.0.serialized()
-        result[indexes.column1] = self.columns.1.serialized()
-        result[indexes.column2] = self.columns.2.serialized()
+        result[indexes.column0] = self.columns.0.serializedIndexes()
+        result[indexes.column1] = self.columns.1.serializedIndexes()
+        result[indexes.column2] = self.columns.2.serializedIndexes()
         
         return result
     }

@@ -60,11 +60,11 @@ extension float3x2: Serializable {
 }
 
 extension float3x2: IndexSerializable {
-    public func serialized() -> [[Float]] {
+    public func serializedIndexes() -> [[Float]] {
         var result = [[Float]](repeating: [0], count: 3)
-        result[indexes.column0] = self[0].serialized()
-        result[indexes.column1] = self[1].serialized()
-        result[indexes.column2] = self[2].serialized()
+        result[indexes.column0] = self[0].serializedIndexes()
+        result[indexes.column1] = self[1].serializedIndexes()
+        result[indexes.column2] = self[2].serializedIndexes()
         
         return result
     }

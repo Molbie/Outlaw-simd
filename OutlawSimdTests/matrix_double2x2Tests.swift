@@ -74,7 +74,7 @@ class matrix_double2x2Tests: XCTestCase {
     func testSerializable() {
         let value = matrix_double2x2(columns: (vector_double2(0, 10),
                                                vector_double2(1, 11)))
-        let data: [String: [String: Double]] = value.serialized()
+        let data = value.serialized()
         
         XCTAssertEqual(data[keys.column0]?[subkeys.x], value.columns.0.x)
         XCTAssertEqual(data[keys.column0]?[subkeys.y], value.columns.0.y)
@@ -86,7 +86,7 @@ class matrix_double2x2Tests: XCTestCase {
     func testIndexSerializable() {
         let value = matrix_double2x2(columns: (vector_double2(0, 10),
                                                vector_double2(1, 11)))
-        let data: [[Double]] = value.serialized()
+        let data = value.serializedIndexes()
         
         XCTAssertEqual(data[indexes.column0][subindexes.x], value.columns.0.x)
         XCTAssertEqual(data[indexes.column0][subindexes.y], value.columns.0.y)

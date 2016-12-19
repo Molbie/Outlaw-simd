@@ -65,7 +65,7 @@ extension double4: Serializable {
 }
 
 extension double4: IndexSerializable {
-    public func serialized() -> [Double] {
+    public func serializedIndexes() -> [Double] {
         var result = [Double](repeating: 0, count: 4)
         result[indexes.x] = self.x
         result[indexes.y] = self.y

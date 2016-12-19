@@ -111,7 +111,7 @@ class double3x4Tests: XCTestCase {
         let value = double3x4([double4(0, 10, 20, 30),
                                double4(1, 11, 21, 31),
                                double4(2, 12, 22, 32)])
-        let data: [String: [String: Double]] = value.serialized()
+        let data = value.serialized()
         
         XCTAssertEqual(data[keys.column0]?[subkeys.x], value[0].x)
         XCTAssertEqual(data[keys.column0]?[subkeys.y], value[0].y)
@@ -133,7 +133,7 @@ class double3x4Tests: XCTestCase {
         let value = double3x4([double4(0, 10, 20, 30),
                                double4(1, 11, 21, 31),
                                double4(2, 12, 22, 32)])
-        let data: [[Double]] = value.serialized()
+        let data = value.serializedIndexes()
         
         XCTAssertEqual(data[indexes.column0][subindexes.x], value[0].x)
         XCTAssertEqual(data[indexes.column0][subindexes.y], value[0].y)
