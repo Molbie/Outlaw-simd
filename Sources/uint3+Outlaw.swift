@@ -16,6 +16,11 @@ public extension uint3 {
         public static let y = "y"
         public static let z = "z"
     }
+    public struct ExtractableIndexes {
+        public static let x: Int = 0
+        public static let y: Int = 1
+        public static let z: Int = 2
+    }
 }
 
 extension uint3: Value {
@@ -30,9 +35,11 @@ extension uint3: Value {
             return uint3(x: x, y: y, z: z)
         }
         else if let data = object as? IndexExtractable {
-            let x: UInt32 = try data.value(for: 0)
-            let y: UInt32 = try data.value(for: 1)
-            let z: UInt32 = try data.value(for: 2)
+            typealias indexes = uint3.ExtractableIndexes
+            
+            let x: UInt32 = try data.value(for: indexes.x)
+            let y: UInt32 = try data.value(for: indexes.y)
+            let z: UInt32 = try data.value(for: indexes.z)
             
             return uint3(x: x, y: y, z: z)
         }
@@ -58,6 +65,13 @@ extension uint3: Serializable {
 
 extension uint3: IndexSerializable {
     public func serialized() -> [UInt32] {
-        return [self.x, self.y, self.z]
+        typealias indexes = uint3.ExtractableIndexes
+        
+        var result = [UInt32](repeating: 0, count: 3)
+        result[indexes.x] = self.x
+        result[indexes.y] = self.y
+        result[indexes.z] = self.z
+        
+        return result
     }
 }

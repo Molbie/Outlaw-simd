@@ -17,6 +17,12 @@ public extension matrix_double4x2 {
         public static let column2 = "2"
         public static let column3 = "3"
     }
+    public struct ExtractableIndexes {
+        public static let column0: Int = 0
+        public static let column1: Int = 1
+        public static let column2: Int = 2
+        public static let column3: Int = 3
+    }
 }
 
 extension matrix_double4x2: Value {
@@ -32,10 +38,12 @@ extension matrix_double4x2: Value {
             return matrix_double4x2(columns: (col0, col1, col2, col3))
         }
         else if let data = object as? IndexExtractable {
-            let col0: vector_double2 = try data.value(for: 0)
-            let col1: vector_double2 = try data.value(for: 1)
-            let col2: vector_double2 = try data.value(for: 2)
-            let col3: vector_double2 = try data.value(for: 3)
+            typealias indexes = matrix_double4x2.ExtractableIndexes
+            
+            let col0: vector_double2 = try data.value(for: indexes.column0)
+            let col1: vector_double2 = try data.value(for: indexes.column1)
+            let col2: vector_double2 = try data.value(for: indexes.column2)
+            let col3: vector_double2 = try data.value(for: indexes.column3)
             
             return matrix_double4x2(columns: (col0, col1, col2, col3))
         }
@@ -62,9 +70,14 @@ extension matrix_double4x2: Serializable {
 
 extension matrix_double4x2: IndexSerializable {
     public func serialized() -> [[Double]] {
-        return [self.columns.0.serialized(),
-                self.columns.1.serialized(),
-                self.columns.2.serialized(),
-                self.columns.3.serialized()]
+        typealias indexes = matrix_double4x2.ExtractableIndexes
+        
+        var result = [[Double]](repeating: [0], count: 4)
+        result[indexes.column0] = self.columns.0.serialized()
+        result[indexes.column1] = self.columns.1.serialized()
+        result[indexes.column2] = self.columns.2.serialized()
+        result[indexes.column3] = self.columns.3.serialized()
+        
+        return result
     }
 }

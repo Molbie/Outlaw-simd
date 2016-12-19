@@ -15,6 +15,10 @@ public extension matrix_double2x4 {
         public static let column0 = "0"
         public static let column1 = "1"
     }
+    public struct ExtractableIndexes {
+        public static let column0: Int = 0
+        public static let column1: Int = 1
+    }
 }
 
 extension matrix_double2x4: Value {
@@ -28,8 +32,10 @@ extension matrix_double2x4: Value {
             return matrix_double2x4(columns: (col0, col1))
         }
         else if let data = object as? IndexExtractable {
-            let col0: vector_double4 = try data.value(for: 0)
-            let col1: vector_double4 = try data.value(for: 1)
+            typealias indexes = matrix_double2x4.ExtractableIndexes
+            
+            let col0: vector_double4 = try data.value(for: indexes.column0)
+            let col1: vector_double4 = try data.value(for: indexes.column1)
             
             return matrix_double2x4(columns: (col0, col1))
         }
@@ -54,7 +60,12 @@ extension matrix_double2x4: Serializable {
 
 extension matrix_double2x4: IndexSerializable {
     public func serialized() -> [[Double]] {
-        return [self.columns.0.serialized(),
-                self.columns.1.serialized()]
+        typealias indexes = matrix_double2x4.ExtractableIndexes
+        
+        var result = [[Double]](repeating: [0], count: 2)
+        result[indexes.column0] = self.columns.0.serialized()
+        result[indexes.column1] = self.columns.1.serialized()
+        
+        return result
     }
 }

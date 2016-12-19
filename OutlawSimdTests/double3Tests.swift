@@ -28,13 +28,19 @@ class double3Tests: XCTestCase {
     }
     
     func testIndexExtractableValue() {
-        let rawData: [Double] = [1, 2, 3]
+        typealias indexes = double3.ExtractableIndexes
+        
+        var rawData = [Double](repeating: 0, count: 3)
+        rawData[indexes.x] = 1
+        rawData[indexes.y] = 2
+        rawData[indexes.z] = 3
+        
         let data: [[Double]] = [rawData]
         let value: double3 = try! data.value(for: 0)
         
-        XCTAssertEqual(value.x, rawData[0])
-        XCTAssertEqual(value.y, rawData[1])
-        XCTAssertEqual(value.z, rawData[2])
+        XCTAssertEqual(value.x, rawData[indexes.x])
+        XCTAssertEqual(value.y, rawData[indexes.y])
+        XCTAssertEqual(value.z, rawData[indexes.z])
     }
     
     func testInvalidValue() {
@@ -65,11 +71,13 @@ class double3Tests: XCTestCase {
     }
     
     func testIndexSerializable() {
+        typealias indexes = double3.ExtractableIndexes
+        
         let value = double3(x: 1, y: 2, z: 3)
         let data: [Double] = value.serialized()
         
-        XCTAssertEqual(data[0], value.x)
-        XCTAssertEqual(data[1], value.y)
-        XCTAssertEqual(data[2], value.z)
+        XCTAssertEqual(data[indexes.x], value.x)
+        XCTAssertEqual(data[indexes.y], value.y)
+        XCTAssertEqual(data[indexes.z], value.z)
     }
 }

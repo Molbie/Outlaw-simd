@@ -17,6 +17,12 @@ public extension double4x4 {
         public static let column2 = "2"
         public static let column3 = "3"
     }
+    public struct ExtractableIndexes {
+        public static let column0: Int = 0
+        public static let column1: Int = 1
+        public static let column2: Int = 2
+        public static let column3: Int = 3
+    }
 }
 
 extension double4x4: Value {
@@ -32,10 +38,12 @@ extension double4x4: Value {
             return double4x4([col0, col1, col2, col3])
         }
         else if let data = object as? IndexExtractable {
-            let col0: double4 = try data.value(for: 0)
-            let col1: double4 = try data.value(for: 1)
-            let col2: double4 = try data.value(for: 2)
-            let col3: double4 = try data.value(for: 3)
+            typealias indexes = double4x4.ExtractableIndexes
+            
+            let col0: double4 = try data.value(for: indexes.column0)
+            let col1: double4 = try data.value(for: indexes.column1)
+            let col2: double4 = try data.value(for: indexes.column2)
+            let col3: double4 = try data.value(for: indexes.column3)
             
             return double4x4([col0, col1, col2, col3])
         }
@@ -62,9 +70,14 @@ extension double4x4: Serializable {
 
 extension double4x4: IndexSerializable {
     public func serialized() -> [[Double]] {
-        return [self[0].serialized(),
-                self[1].serialized(),
-                self[2].serialized(),
-                self[3].serialized()]
+        typealias indexes = double4x4.ExtractableIndexes
+        
+        var result = [[Double]](repeating: [0], count: 4)
+        result[indexes.column0] = self[0].serialized()
+        result[indexes.column1] = self[1].serialized()
+        result[indexes.column2] = self[2].serialized()
+        result[indexes.column3] = self[3].serialized()
+        
+        return result
     }
 }

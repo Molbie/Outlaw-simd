@@ -15,6 +15,10 @@ public extension int2 {
         public static let x = "x"
         public static let y = "y"
     }
+    public struct ExtractableIndexes {
+        public static let x: Int = 0
+        public static let y: Int = 1
+    }
 }
 
 extension int2: Value {
@@ -28,8 +32,10 @@ extension int2: Value {
             return int2(x: x, y: y)
         }
         else if let data = object as? IndexExtractable {
-            let x: Int32 = try data.value(for: 0)
-            let y: Int32 = try data.value(for: 1)
+            typealias indexes = int2.ExtractableIndexes
+            
+            let x: Int32 = try data.value(for: indexes.x)
+            let y: Int32 = try data.value(for: indexes.y)
             
             return int2(x: x, y: y)
         }
@@ -54,6 +60,12 @@ extension int2: Serializable {
 
 extension int2: IndexSerializable {
     public func serialized() -> [Int32] {
-        return [self.x, self.y]
+        typealias indexes = int2.ExtractableIndexes
+        
+        var result = [Int32](repeating: 0, count: 2)
+        result[indexes.x] = self.x
+        result[indexes.y] = self.y
+        
+        return result
     }
 }

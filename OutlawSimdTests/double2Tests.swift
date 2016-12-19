@@ -26,12 +26,17 @@ class double2Tests: XCTestCase {
     }
     
     func testIndexExtractableValue() {
-        let rawData: [Double] = [1, 2]
+        typealias indexes = double2.ExtractableIndexes
+        
+        var rawData = [Double](repeating: 0, count: 2)
+        rawData[indexes.x] = 1
+        rawData[indexes.y] = 2
+        
         let data: [[Double]] = [rawData]
         let value: double2 = try! data.value(for: 0)
         
-        XCTAssertEqual(value.x, rawData[0])
-        XCTAssertEqual(value.y, rawData[1])
+        XCTAssertEqual(value.x, rawData[indexes.x])
+        XCTAssertEqual(value.y, rawData[indexes.y])
     }
     
     func testInvalidValue() {
@@ -61,10 +66,12 @@ class double2Tests: XCTestCase {
     }
     
     func testIndexSerializable() {
+        typealias indexes = double2.ExtractableIndexes
+        
         let value = double2(x: 1, y: 2)
         let data: [Double] = value.serialized()
         
-        XCTAssertEqual(data[0], value.x)
-        XCTAssertEqual(data[1], value.y)
+        XCTAssertEqual(data[indexes.x], value.x)
+        XCTAssertEqual(data[indexes.y], value.y)
     }
 }

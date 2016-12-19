@@ -15,6 +15,10 @@ public extension float2 {
         public static let x = "x"
         public static let y = "y"
     }
+    public struct ExtractableIndexes {
+        public static let x: Int = 0
+        public static let y: Int = 1
+    }
 }
 
 extension float2: Value {
@@ -28,8 +32,10 @@ extension float2: Value {
             return float2(x: x, y: y)
         }
         else if let data = object as? IndexExtractable {
-            let x: Float = try data.value(for: 0)
-            let y: Float = try data.value(for: 1)
+            typealias indexes = float2.ExtractableIndexes
+            
+            let x: Float = try data.value(for: indexes.x)
+            let y: Float = try data.value(for: indexes.y)
             
             return float2(x: x, y: y)
         }
@@ -54,6 +60,12 @@ extension float2: Serializable {
 
 extension float2: IndexSerializable {
     public func serialized() -> [Float] {
-        return [self.x, self.y]
+        typealias indexes = float2.ExtractableIndexes
+        
+        var result = [Float](repeating: 0, count: 2)
+        result[indexes.x] = self.x
+        result[indexes.y] = self.y
+        
+        return result
     }
 }

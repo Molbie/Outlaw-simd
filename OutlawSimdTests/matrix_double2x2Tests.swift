@@ -32,16 +32,28 @@ class matrix_double2x2Tests: XCTestCase {
     }
     
     func testIndexExtractableValue() {
-        let rawData: [[Double]] = [[0, 10],
-                                   [1, 11]]
+        typealias indexes = matrix_double2x2.ExtractableIndexes
+        typealias subindexes = vector_double2.ExtractableIndexes
+        
+        var rawData0 = [Double](repeating: 0, count: 2)
+        rawData0[subindexes.x] = 0
+        rawData0[subindexes.y] = 10
+        var rawData1 = [Double](repeating: 0, count: 2)
+        rawData1[subindexes.x] = 1
+        rawData1[subindexes.y] = 11
+        
+        var rawData = [[Double]](repeating: [0], count: 2)
+        rawData[indexes.column0] = rawData0
+        rawData[indexes.column1] = rawData1
+        
         let data: [[[Double]]] = [rawData]
         let value: matrix_double2x2 = try! data.value(for: 0)
         
-        XCTAssertEqual(value.columns.0.x, rawData[0][0])
-        XCTAssertEqual(value.columns.0.y, rawData[0][1])
+        XCTAssertEqual(value.columns.0.x, rawData[indexes.column0][subindexes.x])
+        XCTAssertEqual(value.columns.0.y, rawData[indexes.column0][subindexes.y])
         
-        XCTAssertEqual(value.columns.1.x, rawData[1][0])
-        XCTAssertEqual(value.columns.1.y, rawData[1][1])
+        XCTAssertEqual(value.columns.1.x, rawData[indexes.column1][subindexes.x])
+        XCTAssertEqual(value.columns.1.y, rawData[indexes.column1][subindexes.y])
     }
     
     func testInvalidValue() {
@@ -76,14 +88,17 @@ class matrix_double2x2Tests: XCTestCase {
     }
     
     func testIndexSerializable() {
+        typealias indexes = matrix_double2x2.ExtractableIndexes
+        typealias subindexes = vector_double2.ExtractableIndexes
+        
         let value = matrix_double2x2(columns: (vector_double2(0, 10),
                                                vector_double2(1, 11)))
         let data: [[Double]] = value.serialized()
         
-        XCTAssertEqual(data[0][0], value.columns.0.x)
-        XCTAssertEqual(data[0][1], value.columns.0.y)
+        XCTAssertEqual(data[indexes.column0][subindexes.x], value.columns.0.x)
+        XCTAssertEqual(data[indexes.column0][subindexes.y], value.columns.0.y)
         
-        XCTAssertEqual(data[1][0], value.columns.1.x)
-        XCTAssertEqual(data[1][1], value.columns.1.y)
+        XCTAssertEqual(data[indexes.column1][subindexes.x], value.columns.1.x)
+        XCTAssertEqual(data[indexes.column1][subindexes.y], value.columns.1.y)
     }
 }

@@ -17,6 +17,12 @@ public extension float4 {
         public static let z = "z"
         public static let w = "w"
     }
+    public struct ExtractableIndexes {
+        public static let x: Int = 0
+        public static let y: Int = 1
+        public static let z: Int = 2
+        public static let w: Int = 3
+    }
 }
 
 extension float4: Value {
@@ -32,10 +38,12 @@ extension float4: Value {
             return float4(x: x, y: y, z: z, w: w)
         }
         else if let data = object as? IndexExtractable {
-            let x: Float = try data.value(for: 0)
-            let y: Float = try data.value(for: 1)
-            let z: Float = try data.value(for: 2)
-            let w: Float = try data.value(for: 3)
+            typealias indexes = float4.ExtractableIndexes
+            
+            let x: Float = try data.value(for: indexes.x)
+            let y: Float = try data.value(for: indexes.y)
+            let z: Float = try data.value(for: indexes.z)
+            let w: Float = try data.value(for: indexes.w)
             
             return float4(x: x, y: y, z: z, w: w)
         }
@@ -62,6 +70,14 @@ extension float4: Serializable {
 
 extension float4: IndexSerializable {
     public func serialized() -> [Float] {
-        return [self.x, self.y, self.z, self.w]
+        typealias indexes = float4.ExtractableIndexes
+        
+        var result = [Float](repeating: 0, count: 4)
+        result[indexes.x] = self.x
+        result[indexes.y] = self.y
+        result[indexes.z] = self.z
+        result[indexes.w] = self.w
+        
+        return result
     }
 }

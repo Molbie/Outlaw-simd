@@ -58,32 +58,58 @@ class double4x4Tests: XCTestCase {
     }
     
     func testIndexExtractableValue() {
-        let rawData: [[Double]] = [[0, 10, 20, 30],
-                                   [1, 11, 21, 31],
-                                   [2, 12, 22, 32],
-                                   [3, 13, 23, 33]]
+        typealias indexes = double4x4.ExtractableIndexes
+        typealias subindexes = double4.ExtractableIndexes
+        
+        var rawData0 = [Double](repeating: 0, count: 4)
+        rawData0[subindexes.x] = 0
+        rawData0[subindexes.y] = 10
+        rawData0[subindexes.z] = 20
+        rawData0[subindexes.w] = 30
+        var rawData1 = [Double](repeating: 0, count: 4)
+        rawData1[subindexes.x] = 1
+        rawData1[subindexes.y] = 11
+        rawData1[subindexes.z] = 21
+        rawData1[subindexes.w] = 31
+        var rawData2 = [Double](repeating: 0, count: 4)
+        rawData2[subindexes.x] = 2
+        rawData2[subindexes.y] = 12
+        rawData2[subindexes.z] = 22
+        rawData2[subindexes.w] = 32
+        var rawData3 = [Double](repeating: 0, count: 4)
+        rawData3[subindexes.x] = 3
+        rawData3[subindexes.y] = 13
+        rawData3[subindexes.z] = 23
+        rawData3[subindexes.w] = 33
+        
+        var rawData = [[Double]](repeating: [0], count: 4)
+        rawData[indexes.column0] = rawData0
+        rawData[indexes.column1] = rawData1
+        rawData[indexes.column2] = rawData2
+        rawData[indexes.column3] = rawData3
+        
         let data: [[[Double]]] = [rawData]
         let value: double4x4 = try! data.value(for: 0)
         
-        XCTAssertEqual(value[0].x, rawData[0][0])
-        XCTAssertEqual(value[0].y, rawData[0][1])
-        XCTAssertEqual(value[0].z, rawData[0][2])
-        XCTAssertEqual(value[0].w, rawData[0][3])
+        XCTAssertEqual(value[0].x, rawData[indexes.column0][subindexes.x])
+        XCTAssertEqual(value[0].y, rawData[indexes.column0][subindexes.y])
+        XCTAssertEqual(value[0].z, rawData[indexes.column0][subindexes.z])
+        XCTAssertEqual(value[0].w, rawData[indexes.column0][subindexes.w])
         
-        XCTAssertEqual(value[1].x, rawData[1][0])
-        XCTAssertEqual(value[1].y, rawData[1][1])
-        XCTAssertEqual(value[1].z, rawData[1][2])
-        XCTAssertEqual(value[1].w, rawData[1][3])
+        XCTAssertEqual(value[1].x, rawData[indexes.column1][subindexes.x])
+        XCTAssertEqual(value[1].y, rawData[indexes.column1][subindexes.y])
+        XCTAssertEqual(value[1].z, rawData[indexes.column1][subindexes.z])
+        XCTAssertEqual(value[1].w, rawData[indexes.column1][subindexes.w])
         
-        XCTAssertEqual(value[2].x, rawData[2][0])
-        XCTAssertEqual(value[2].y, rawData[2][1])
-        XCTAssertEqual(value[2].z, rawData[2][2])
-        XCTAssertEqual(value[2].w, rawData[2][3])
+        XCTAssertEqual(value[2].x, rawData[indexes.column2][subindexes.x])
+        XCTAssertEqual(value[2].y, rawData[indexes.column2][subindexes.y])
+        XCTAssertEqual(value[2].z, rawData[indexes.column2][subindexes.z])
+        XCTAssertEqual(value[2].w, rawData[indexes.column2][subindexes.w])
         
-        XCTAssertEqual(value[3].x, rawData[3][0])
-        XCTAssertEqual(value[3].y, rawData[3][1])
-        XCTAssertEqual(value[3].z, rawData[3][2])
-        XCTAssertEqual(value[3].w, rawData[3][3])
+        XCTAssertEqual(value[3].x, rawData[indexes.column3][subindexes.x])
+        XCTAssertEqual(value[3].y, rawData[indexes.column3][subindexes.y])
+        XCTAssertEqual(value[3].z, rawData[indexes.column3][subindexes.z])
+        XCTAssertEqual(value[3].w, rawData[indexes.column3][subindexes.w])
     }
     
     func testInvalidValue() {
@@ -134,30 +160,33 @@ class double4x4Tests: XCTestCase {
     }
     
     func testIndexSerializable() {
+        typealias indexes = double4x4.ExtractableIndexes
+        typealias subindexes = double4.ExtractableIndexes
+        
         let value = double4x4([double4(0, 10, 20, 30),
                                double4(1, 11, 21, 31),
                                double4(2, 12, 22, 32),
                                double4(3, 13, 23, 33)])
         let data: [[Double]] = value.serialized()
         
-        XCTAssertEqual(data[0][0], value[0].x)
-        XCTAssertEqual(data[0][1], value[0].y)
-        XCTAssertEqual(data[0][2], value[0].z)
-        XCTAssertEqual(data[0][3], value[0].w)
+        XCTAssertEqual(data[indexes.column0][subindexes.x], value[0].x)
+        XCTAssertEqual(data[indexes.column0][subindexes.y], value[0].y)
+        XCTAssertEqual(data[indexes.column0][subindexes.z], value[0].z)
+        XCTAssertEqual(data[indexes.column0][subindexes.w], value[0].w)
         
-        XCTAssertEqual(data[1][0], value[1].x)
-        XCTAssertEqual(data[1][1], value[1].y)
-        XCTAssertEqual(data[1][2], value[1].z)
-        XCTAssertEqual(data[1][3], value[1].w)
+        XCTAssertEqual(data[indexes.column1][subindexes.x], value[1].x)
+        XCTAssertEqual(data[indexes.column1][subindexes.y], value[1].y)
+        XCTAssertEqual(data[indexes.column1][subindexes.z], value[1].z)
+        XCTAssertEqual(data[indexes.column1][subindexes.w], value[1].w)
         
-        XCTAssertEqual(data[2][0], value[2].x)
-        XCTAssertEqual(data[2][1], value[2].y)
-        XCTAssertEqual(data[2][2], value[2].z)
-        XCTAssertEqual(data[2][3], value[2].w)
+        XCTAssertEqual(data[indexes.column2][subindexes.x], value[2].x)
+        XCTAssertEqual(data[indexes.column2][subindexes.y], value[2].y)
+        XCTAssertEqual(data[indexes.column2][subindexes.z], value[2].z)
+        XCTAssertEqual(data[indexes.column2][subindexes.w], value[2].w)
         
-        XCTAssertEqual(data[3][0], value[3].x)
-        XCTAssertEqual(data[3][1], value[3].y)
-        XCTAssertEqual(data[3][2], value[3].z)
-        XCTAssertEqual(data[3][3], value[3].w)
+        XCTAssertEqual(data[indexes.column3][subindexes.x], value[3].x)
+        XCTAssertEqual(data[indexes.column3][subindexes.y], value[3].y)
+        XCTAssertEqual(data[indexes.column3][subindexes.z], value[3].z)
+        XCTAssertEqual(data[indexes.column3][subindexes.w], value[3].w)
     }
 }

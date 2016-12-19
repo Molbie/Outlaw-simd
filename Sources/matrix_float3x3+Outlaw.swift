@@ -16,6 +16,11 @@ public extension matrix_float3x3 {
         public static let column1 = "1"
         public static let column2 = "2"
     }
+    public struct ExtractableIndexes {
+        public static let column0: Int = 0
+        public static let column1: Int = 1
+        public static let column2: Int = 2
+    }
 }
 
 extension matrix_float3x3: Value {
@@ -30,9 +35,11 @@ extension matrix_float3x3: Value {
             return matrix_float3x3(columns: (col0, col1, col2))
         }
         else if let data = object as? IndexExtractable {
-            let col0: vector_float3 = try data.value(for: 0)
-            let col1: vector_float3 = try data.value(for: 1)
-            let col2: vector_float3 = try data.value(for: 2)
+            typealias indexes = matrix_float3x3.ExtractableIndexes
+            
+            let col0: vector_float3 = try data.value(for: indexes.column0)
+            let col1: vector_float3 = try data.value(for: indexes.column1)
+            let col2: vector_float3 = try data.value(for: indexes.column2)
             
             return matrix_float3x3(columns: (col0, col1, col2))
         }
@@ -58,8 +65,13 @@ extension matrix_float3x3: Serializable {
 
 extension matrix_float3x3: IndexSerializable {
     public func serialized() -> [[Float]] {
-        return [self.columns.0.serialized(),
-                self.columns.1.serialized(),
-                self.columns.2.serialized()]
+        typealias indexes = matrix_float3x3.ExtractableIndexes
+        
+        var result = [[Float]](repeating: [0], count: 3)
+        result[indexes.column0] = self.columns.0.serialized()
+        result[indexes.column1] = self.columns.1.serialized()
+        result[indexes.column2] = self.columns.2.serialized()
+        
+        return result
     }
 }
