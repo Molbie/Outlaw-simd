@@ -2,9 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:OutlawSimd.xcodeproj">
+      location = "group:Xcode/OutlawSimd.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Carthage/Checkouts/outlaw/Outlaw.xcodeproj">
-   </FileRef>
+   <Group
+      location = "container:"
+      name = "Dependencies">
+      <FileRef
+         location = "group:Carthage/Checkouts/outlaw/Xcode/Outlaw.xcodeproj">
+      </FileRef>
+   </Group>
 </Workspace>

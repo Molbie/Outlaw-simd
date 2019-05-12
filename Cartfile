@@ -1,1 +1,1 @@
-github "molbie/outlaw" "master"
+github "molbie/outlaw" ~> 4.0

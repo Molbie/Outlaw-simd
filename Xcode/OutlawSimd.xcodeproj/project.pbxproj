@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AE15E1CE1E060DC2007E628E /* OutlawSimd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE15E1C41E060DC2007E628E /* OutlawSimd.framework */; };
+		AE93BE9822878F07008118D7 /* uint3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE6722878F07008118D7 /* uint3Tests.swift */; };
+		AE93BE9922878F07008118D7 /* double4x4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE6822878F07008118D7 /* double4x4Tests.swift */; };
+		AE93BE9A22878F07008118D7 /* double3x4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE6922878F07008118D7 /* double3x4Tests.swift */; };
+		AE93BE9B22878F07008118D7 /* float4x2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE6A22878F07008118D7 /* float4x2Tests.swift */; };
+		AE93BE9C22878F07008118D7 /* float3x2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE6B22878F07008118D7 /* float3x2Tests.swift */; };
+		AE93BE9F22878F07008118D7 /* double2x4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE6E22878F07008118D7 /* double2x4Tests.swift */; };
+		AE93BEA022878F07008118D7 /* int2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE6F22878F07008118D7 /* int2Tests.swift */; };
+		AE93BEA122878F07008118D7 /* double3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE7022878F07008118D7 /* double3Tests.swift */; };
+		AE93BEA222878F07008118D7 /* float2x2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE7122878F07008118D7 /* float2x2Tests.swift */; };
+		AE93BEA522878F07008118D7 /* float2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE7422878F07008118D7 /* float2Tests.swift */; };
+		AE93BEA622878F07008118D7 /* double4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE7522878F07008118D7 /* double4Tests.swift */; };
+		AE93BEA922878F07008118D7 /* double2x3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE7822878F07008118D7 /* double2x3Tests.swift */; };
+		AE93BEAC22878F07008118D7 /* double4x3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE7B22878F07008118D7 /* double4x3Tests.swift */; };
+		AE93BEAD22878F07008118D7 /* double3x3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE7C22878F07008118D7 /* double3x3Tests.swift */; };
+		AE93BEAE22878F07008118D7 /* uint4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE7D22878F07008118D7 /* uint4Tests.swift */; };
+		AE93BEB322878F07008118D7 /* double2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE8222878F07008118D7 /* double2Tests.swift */; };
+		AE93BEB422878F07008118D7 /* int3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE8322878F07008118D7 /* int3Tests.swift */; };
+		AE93BEB522878F07008118D7 /* float4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE8422878F07008118D7 /* float4Tests.swift */; };
+		AE93BEB622878F07008118D7 /* float2x3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE8522878F07008118D7 /* float2x3Tests.swift */; };
+		AE93BEB722878F07008118D7 /* uint2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE8622878F07008118D7 /* uint2Tests.swift */; };
+		AE93BEBB22878F07008118D7 /* float4x3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE8A22878F07008118D7 /* float4x3Tests.swift */; };
+		AE93BEBC22878F07008118D7 /* float3x3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE8B22878F07008118D7 /* float3x3Tests.swift */; };
+		AE93BEBD22878F07008118D7 /* float4x4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE8C22878F07008118D7 /* float4x4Tests.swift */; };
+		AE93BEBE22878F07008118D7 /* float3x4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE8D22878F07008118D7 /* float3x4Tests.swift */; };
+		AE93BEBF22878F07008118D7 /* double4x2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE8E22878F07008118D7 /* double4x2Tests.swift */; };
+		AE93BEC022878F07008118D7 /* double3x2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE8F22878F07008118D7 /* double3x2Tests.swift */; };
+		AE93BEC222878F07008118D7 /* float3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE9122878F07008118D7 /* float3Tests.swift */; };
+		AE93BEC322878F07008118D7 /* float2x4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE9222878F07008118D7 /* float2x4Tests.swift */; };
+		AE93BEC422878F07008118D7 /* int4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE9322878F07008118D7 /* int4Tests.swift */; };
+		AE93BEC822878F07008118D7 /* double2x2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BE9722878F07008118D7 /* double2x2Tests.swift */; };
+		AE93BEFE22878F17008118D7 /* simd_double3x2+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BECE22878F17008118D7 /* simd_double3x2+Outlaw.swift */; };
+		AE93BF0222878F17008118D7 /* simd_double4x2+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BED222878F17008118D7 /* simd_double4x2+Outlaw.swift */; };
+		AE93BF0322878F17008118D7 /* simd_double2x4+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BED322878F17008118D7 /* simd_double2x4+Outlaw.swift */; };
+		AE93BF0422878F17008118D7 /* simd_double2x3+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BED422878F17008118D7 /* simd_double2x3+Outlaw.swift */; };
+		AE93BF0822878F17008118D7 /* simd_double3x3+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BED822878F17008118D7 /* simd_double3x3+Outlaw.swift */; };
+		AE93BF0922878F17008118D7 /* simd_double3x4+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BED922878F17008118D7 /* simd_double3x4+Outlaw.swift */; };
+		AE93BF0D22878F17008118D7 /* simd_double2x2+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BEDD22878F17008118D7 /* simd_double2x2+Outlaw.swift */; };
+		AE93BF0E22878F17008118D7 /* simd_double4x4+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BEDE22878F17008118D7 /* simd_double4x4+Outlaw.swift */; };
+		AE93BF0F22878F17008118D7 /* simd_double4x3+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BEDF22878F17008118D7 /* simd_double4x3+Outlaw.swift */; };
+		AE93BF1322878F17008118D7 /* simd_float2x2+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BEE322878F17008118D7 /* simd_float2x2+Outlaw.swift */; };
+		AE93BF1422878F17008118D7 /* simd_float4x4+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BEE422878F17008118D7 /* simd_float4x4+Outlaw.swift */; };
+		AE93BF1522878F17008118D7 /* simd_float4x3+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BEE522878F17008118D7 /* simd_float4x3+Outlaw.swift */; };
+		AE93BF1922878F17008118D7 /* simd_float3x3+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BEE922878F17008118D7 /* simd_float3x3+Outlaw.swift */; };
+		AE93BF1A22878F17008118D7 /* simd_float3x4+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BEEA22878F17008118D7 /* simd_float3x4+Outlaw.swift */; };
+		AE93BF1B22878F17008118D7 /* simd_float4x2+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BEEB22878F17008118D7 /* simd_float4x2+Outlaw.swift */; };
+		AE93BF1C22878F17008118D7 /* simd_float2x4+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BEEC22878F17008118D7 /* simd_float2x4+Outlaw.swift */; };
+		AE93BF1D22878F17008118D7 /* simd_float2x3+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BEED22878F17008118D7 /* simd_float2x3+Outlaw.swift */; };
+		AE93BF2022878F17008118D7 /* simd_float3x2+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BEF022878F17008118D7 /* simd_float3x2+Outlaw.swift */; };
+		AE93BF2B22878F2C008118D7 /* OutlawSimd.h in Headers */ = {isa = PBXBuildFile; fileRef = AE93BE5B22878E7A008118D7 /* OutlawSimd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE93BF2D22878F48008118D7 /* Outlaw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE93BF2C22878F48008118D7 /* Outlaw.framework */; };
+		AE93BF2F22878F56008118D7 /* Outlaw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE93BF2E22878F56008118D7 /* Outlaw.framework */; };
+		AE93BF33228795C6008118D7 /* SIMD2+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BF32228795C6008118D7 /* SIMD2+Outlaw.swift */; };
+		AE93BF35228795D4008118D7 /* SIMD3+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BF34228795D4008118D7 /* SIMD3+Outlaw.swift */; };
+		AE93BF37228795F6008118D7 /* SIMD4+Outlaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BF36228795F6008118D7 /* SIMD4+Outlaw.swift */; };
+		AE93BF39228796A2008118D7 /* ExtractableKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BF38228796A2008118D7 /* ExtractableKeys.swift */; };
+		AE93BF3B228796CB008118D7 /* ExtractableIndexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BF3A228796CB008118D7 /* ExtractableIndexes.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE15E1CF1E060DC2007E628E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE15E1BB1E060DC2007E628E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AE15E1C31E060DC2007E628E;
+			remoteInfo = OutlawSimd;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AE15E1C41E060DC2007E628E /* OutlawSimd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OutlawSimd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE15E1CD1E060DC2007E628E /* OutlawSimdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OutlawSimdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE93BE5222878E7A008118D7 /* Molbie-Conditionals.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Molbie-Conditionals.xcconfig"; sourceTree = "<group>"; };
+		AE93BE5322878E7A008118D7 /* Molbie-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Molbie-Release.xcconfig"; sourceTree = "<group>"; };
+		AE93BE5422878E7A008118D7 /* Molbie-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Molbie-Debug.xcconfig"; sourceTree = "<group>"; };
+		AE93BE5622878E7A008118D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE93BE5B22878E7A008118D7 /* OutlawSimd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OutlawSimd.h; sourceTree = "<group>"; };
+		AE93BE5C22878E7A008118D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE93BE5D22878E7A008118D7 /* Molbie-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Molbie-Base.xcconfig"; sourceTree = "<group>"; };
+		AE93BE6022878EE6008118D7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		AE93BE6122878EE6008118D7 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
+		AE93BE6222878EE6008118D7 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
+		AE93BE6322878EE6008118D7 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Cartfile; path = ../Cartfile; sourceTree = "<group>"; };
+		AE93BE6422878EE6008118D7 /* Cartfile.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; name = Cartfile.resolved; path = ../Cartfile.resolved; sourceTree = "<group>"; };
+		AE93BE6722878F07008118D7 /* uint3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uint3Tests.swift; sourceTree = "<group>"; };
+		AE93BE6822878F07008118D7 /* double4x4Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = double4x4Tests.swift; sourceTree = "<group>"; };
+		AE93BE6922878F07008118D7 /* double3x4Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = double3x4Tests.swift; sourceTree = "<group>"; };
+		AE93BE6A22878F07008118D7 /* float4x2Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = float4x2Tests.swift; sourceTree = "<group>"; };
+		AE93BE6B22878F07008118D7 /* float3x2Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = float3x2Tests.swift; sourceTree = "<group>"; };
+		AE93BE6E22878F07008118D7 /* double2x4Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = double2x4Tests.swift; sourceTree = "<group>"; };
+		AE93BE6F22878F07008118D7 /* int2Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = int2Tests.swift; sourceTree = "<group>"; };
+		AE93BE7022878F07008118D7 /* double3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = double3Tests.swift; sourceTree = "<group>"; };
+		AE93BE7122878F07008118D7 /* float2x2Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = float2x2Tests.swift; sourceTree = "<group>"; };
+		AE93BE7422878F07008118D7 /* float2Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = float2Tests.swift; sourceTree = "<group>"; };
+		AE93BE7522878F07008118D7 /* double4Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = double4Tests.swift; sourceTree = "<group>"; };
+		AE93BE7822878F07008118D7 /* double2x3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = double2x3Tests.swift; sourceTree = "<group>"; };
+		AE93BE7B22878F07008118D7 /* double4x3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = double4x3Tests.swift; sourceTree = "<group>"; };
+		AE93BE7C22878F07008118D7 /* double3x3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = double3x3Tests.swift; sourceTree = "<group>"; };
+		AE93BE7D22878F07008118D7 /* uint4Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uint4Tests.swift; sourceTree = "<group>"; };
+		AE93BE8222878F07008118D7 /* double2Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = double2Tests.swift; sourceTree = "<group>"; };
+		AE93BE8322878F07008118D7 /* int3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = int3Tests.swift; sourceTree = "<group>"; };
+		AE93BE8422878F07008118D7 /* float4Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = float4Tests.swift; sourceTree = "<group>"; };
+		AE93BE8522878F07008118D7 /* float2x3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = float2x3Tests.swift; sourceTree = "<group>"; };
+		AE93BE8622878F07008118D7 /* uint2Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uint2Tests.swift; sourceTree = "<group>"; };
+		AE93BE8A22878F07008118D7 /* float4x3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = float4x3Tests.swift; sourceTree = "<group>"; };
+		AE93BE8B22878F07008118D7 /* float3x3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = float3x3Tests.swift; sourceTree = "<group>"; };
+		AE93BE8C22878F07008118D7 /* float4x4Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = float4x4Tests.swift; sourceTree = "<group>"; };
+		AE93BE8D22878F07008118D7 /* float3x4Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = float3x4Tests.swift; sourceTree = "<group>"; };
+		AE93BE8E22878F07008118D7 /* double4x2Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = double4x2Tests.swift; sourceTree = "<group>"; };
+		AE93BE8F22878F07008118D7 /* double3x2Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = double3x2Tests.swift; sourceTree = "<group>"; };
+		AE93BE9122878F07008118D7 /* float3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = float3Tests.swift; sourceTree = "<group>"; };
+		AE93BE9222878F07008118D7 /* float2x4Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = float2x4Tests.swift; sourceTree = "<group>"; };
+		AE93BE9322878F07008118D7 /* int4Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = int4Tests.swift; sourceTree = "<group>"; };
+		AE93BE9722878F07008118D7 /* double2x2Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = double2x2Tests.swift; sourceTree = "<group>"; };
+		AE93BECE22878F17008118D7 /* simd_double3x2+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_double3x2+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BED222878F17008118D7 /* simd_double4x2+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_double4x2+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BED322878F17008118D7 /* simd_double2x4+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_double2x4+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BED422878F17008118D7 /* simd_double2x3+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_double2x3+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BED822878F17008118D7 /* simd_double3x3+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_double3x3+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BED922878F17008118D7 /* simd_double3x4+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_double3x4+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BEDD22878F17008118D7 /* simd_double2x2+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_double2x2+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BEDE22878F17008118D7 /* simd_double4x4+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_double4x4+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BEDF22878F17008118D7 /* simd_double4x3+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_double4x3+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BEE322878F17008118D7 /* simd_float2x2+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_float2x2+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BEE422878F17008118D7 /* simd_float4x4+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_float4x4+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BEE522878F17008118D7 /* simd_float4x3+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_float4x3+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BEE922878F17008118D7 /* simd_float3x3+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_float3x3+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BEEA22878F17008118D7 /* simd_float3x4+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_float3x4+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BEEB22878F17008118D7 /* simd_float4x2+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_float4x2+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BEEC22878F17008118D7 /* simd_float2x4+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_float2x4+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BEED22878F17008118D7 /* simd_float2x3+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_float2x3+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BEF022878F17008118D7 /* simd_float3x2+Outlaw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "simd_float3x2+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BF2C22878F48008118D7 /* Outlaw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Outlaw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE93BF2E22878F56008118D7 /* Outlaw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Outlaw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE93BF3022878FCD008118D7 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; name = ".swift-version"; path = "../.swift-version"; sourceTree = "<group>"; };
+		AE93BF3122878FD7008118D7 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
+		AE93BF32228795C6008118D7 /* SIMD2+Outlaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SIMD2+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BF34228795D4008118D7 /* SIMD3+Outlaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SIMD3+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BF36228795F6008118D7 /* SIMD4+Outlaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SIMD4+Outlaw.swift"; sourceTree = "<group>"; };
+		AE93BF38228796A2008118D7 /* ExtractableKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractableKeys.swift; sourceTree = "<group>"; };
+		AE93BF3A228796CB008118D7 /* ExtractableIndexes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractableIndexes.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE15E1C01E060DC2007E628E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE93BF2D22878F48008118D7 /* Outlaw.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE15E1CA1E060DC2007E628E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE93BF2F22878F56008118D7 /* Outlaw.framework in Frameworks */,
+				AE15E1CE1E060DC2007E628E /* OutlawSimd.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE15E1BA1E060DC2007E628E = {
+			isa = PBXGroup;
+			children = (
+				AE93BEC922878F17008118D7 /* Sources */,
+				AE93BE6522878F07008118D7 /* Tests */,
+				AE93BE5122878E7A008118D7 /* Xcode */,
+				AE93BE5F22878EC2008118D7 /* Project */,
+				AE15E1C51E060DC2007E628E /* Products */,
+				AE15E23F1E060FB3007E628E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AE15E1C51E060DC2007E628E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE15E1C41E060DC2007E628E /* OutlawSimd.framework */,
+				AE15E1CD1E060DC2007E628E /* OutlawSimdTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE15E23F1E060FB3007E628E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE93BF2E22878F56008118D7 /* Outlaw.framework */,
+				AE93BF2C22878F48008118D7 /* Outlaw.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE93BE5122878E7A008118D7 /* Xcode */ = {
+			isa = PBXGroup;
+			children = (
+				AE93BE5A22878E7A008118D7 /* OutlawSimd */,
+				AE93BE5522878E7A008118D7 /* OutlawSimdTests */,
+				AE93BE5D22878E7A008118D7 /* Molbie-Base.xcconfig */,
+				AE93BE5222878E7A008118D7 /* Molbie-Conditionals.xcconfig */,
+				AE93BE5422878E7A008118D7 /* Molbie-Debug.xcconfig */,
+				AE93BE5322878E7A008118D7 /* Molbie-Release.xcconfig */,
+			);
+			name = Xcode;
+			sourceTree = "<group>";
+		};
+		AE93BE5522878E7A008118D7 /* OutlawSimdTests */ = {
+			isa = PBXGroup;
+			children = (
+				AE93BE5622878E7A008118D7 /* Info.plist */,
+			);
+			path = OutlawSimdTests;
+			sourceTree = "<group>";
+		};
+		AE93BE5A22878E7A008118D7 /* OutlawSimd */ = {
+			isa = PBXGroup;
+			children = (
+				AE93BE5B22878E7A008118D7 /* OutlawSimd.h */,
+				AE93BE5C22878E7A008118D7 /* Info.plist */,
+			);
+			path = OutlawSimd;
+			sourceTree = "<group>";
+		};
+		AE93BE5F22878EC2008118D7 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				AE93BE6122878EE6008118D7 /* Package.swift */,
+				AE93BE6322878EE6008118D7 /* Cartfile */,
+				AE93BE6422878EE6008118D7 /* Cartfile.resolved */,
+				AE93BF3022878FCD008118D7 /* .swift-version */,
+				AE93BF3122878FD7008118D7 /* .gitignore */,
+				AE93BE6222878EE6008118D7 /* LICENSE.md */,
+				AE93BE6022878EE6008118D7 /* README.md */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
+		AE93BE6522878F07008118D7 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AE93BE6622878F07008118D7 /* OutlawSimdTests */,
+			);
+			name = Tests;
+			path = ../Tests;
+			sourceTree = "<group>";
+		};
+		AE93BE6622878F07008118D7 /* OutlawSimdTests */ = {
+			isa = PBXGroup;
+			children = (
+				AE93BE8222878F07008118D7 /* double2Tests.swift */,
+				AE93BE7022878F07008118D7 /* double3Tests.swift */,
+				AE93BE7522878F07008118D7 /* double4Tests.swift */,
+				AE93BE9722878F07008118D7 /* double2x2Tests.swift */,
+				AE93BE7822878F07008118D7 /* double2x3Tests.swift */,
+				AE93BE6E22878F07008118D7 /* double2x4Tests.swift */,
+				AE93BE8F22878F07008118D7 /* double3x2Tests.swift */,
+				AE93BE7C22878F07008118D7 /* double3x3Tests.swift */,
+				AE93BE6922878F07008118D7 /* double3x4Tests.swift */,
+				AE93BE8E22878F07008118D7 /* double4x2Tests.swift */,
+				AE93BE7B22878F07008118D7 /* double4x3Tests.swift */,
+				AE93BE6822878F07008118D7 /* double4x4Tests.swift */,
+				AE93BE7422878F07008118D7 /* float2Tests.swift */,
+				AE93BE9122878F07008118D7 /* float3Tests.swift */,
+				AE93BE8422878F07008118D7 /* float4Tests.swift */,
+				AE93BE7122878F07008118D7 /* float2x2Tests.swift */,
+				AE93BE8522878F07008118D7 /* float2x3Tests.swift */,
+				AE93BE9222878F07008118D7 /* float2x4Tests.swift */,
+				AE93BE6B22878F07008118D7 /* float3x2Tests.swift */,
+				AE93BE8B22878F07008118D7 /* float3x3Tests.swift */,
+				AE93BE8D22878F07008118D7 /* float3x4Tests.swift */,
+				AE93BE6A22878F07008118D7 /* float4x2Tests.swift */,
+				AE93BE8A22878F07008118D7 /* float4x3Tests.swift */,
+				AE93BE8C22878F07008118D7 /* float4x4Tests.swift */,
+				AE93BE6F22878F07008118D7 /* int2Tests.swift */,
+				AE93BE8322878F07008118D7 /* int3Tests.swift */,
+				AE93BE9322878F07008118D7 /* int4Tests.swift */,
+				AE93BE8622878F07008118D7 /* uint2Tests.swift */,
+				AE93BE6722878F07008118D7 /* uint3Tests.swift */,
+				AE93BE7D22878F07008118D7 /* uint4Tests.swift */,
+			);
+			path = OutlawSimdTests;
+			sourceTree = "<group>";
+		};
+		AE93BEC922878F17008118D7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AE93BECA22878F17008118D7 /* OutlawSimd */,
+			);
+			name = Sources;
+			path = ../Sources;
+			sourceTree = "<group>";
+		};
+		AE93BECA22878F17008118D7 /* OutlawSimd */ = {
+			isa = PBXGroup;
+			children = (
+				AE93BEDD22878F17008118D7 /* simd_double2x2+Outlaw.swift */,
+				AE93BED422878F17008118D7 /* simd_double2x3+Outlaw.swift */,
+				AE93BED322878F17008118D7 /* simd_double2x4+Outlaw.swift */,
+				AE93BECE22878F17008118D7 /* simd_double3x2+Outlaw.swift */,
+				AE93BED822878F17008118D7 /* simd_double3x3+Outlaw.swift */,
+				AE93BED922878F17008118D7 /* simd_double3x4+Outlaw.swift */,
+				AE93BED222878F17008118D7 /* simd_double4x2+Outlaw.swift */,
+				AE93BEDF22878F17008118D7 /* simd_double4x3+Outlaw.swift */,
+				AE93BEDE22878F17008118D7 /* simd_double4x4+Outlaw.swift */,
+				AE93BEE322878F17008118D7 /* simd_float2x2+Outlaw.swift */,
+				AE93BEED22878F17008118D7 /* simd_float2x3+Outlaw.swift */,
+				AE93BEEC22878F17008118D7 /* simd_float2x4+Outlaw.swift */,
+				AE93BEF022878F17008118D7 /* simd_float3x2+Outlaw.swift */,
+				AE93BEE922878F17008118D7 /* simd_float3x3+Outlaw.swift */,
+				AE93BEEA22878F17008118D7 /* simd_float3x4+Outlaw.swift */,
+				AE93BEEB22878F17008118D7 /* simd_float4x2+Outlaw.swift */,
+				AE93BEE522878F17008118D7 /* simd_float4x3+Outlaw.swift */,
+				AE93BEE422878F17008118D7 /* simd_float4x4+Outlaw.swift */,
+				AE93BF32228795C6008118D7 /* SIMD2+Outlaw.swift */,
+				AE93BF34228795D4008118D7 /* SIMD3+Outlaw.swift */,
+				AE93BF36228795F6008118D7 /* SIMD4+Outlaw.swift */,
+				AE93BF38228796A2008118D7 /* ExtractableKeys.swift */,
+				AE93BF3A228796CB008118D7 /* ExtractableIndexes.swift */,
+			);
+			path = OutlawSimd;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AE15E1C11E060DC2007E628E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE93BF2B22878F2C008118D7 /* OutlawSimd.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AE15E1C31E060DC2007E628E /* OutlawSimd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE15E1D81E060DC2007E628E /* Build configuration list for PBXNativeTarget "OutlawSimd" */;
+			buildPhases = (
+				AE15E1BF1E060DC2007E628E /* Sources */,
+				AE15E1C01E060DC2007E628E /* Frameworks */,
+				AE15E1C11E060DC2007E628E /* Headers */,
+				AE15E1C21E060DC2007E628E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OutlawSimd;
+			productName = OutlawSimd;
+			productReference = AE15E1C41E060DC2007E628E /* OutlawSimd.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AE15E1CC1E060DC2007E628E /* OutlawSimdTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE15E1DB1E060DC2007E628E /* Build configuration list for PBXNativeTarget "OutlawSimdTests" */;
+			buildPhases = (
+				AE15E1C91E060DC2007E628E /* Sources */,
+				AE15E1CA1E060DC2007E628E /* Frameworks */,
+				AE15E1CB1E060DC2007E628E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE15E1D01E060DC2007E628E /* PBXTargetDependency */,
+			);
+			name = OutlawSimdTests;
+			productName = OutlawSimdTests;
+			productReference = AE15E1CD1E060DC2007E628E /* OutlawSimdTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE15E1BB1E060DC2007E628E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Molbie LLC";
+				TargetAttributes = {
+					AE15E1C31E060DC2007E628E = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = PWN4RN68X5;
+						ProvisioningStyle = Automatic;
+					};
+					AE15E1CC1E060DC2007E628E = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = PWN4RN68X5;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AE15E1BE1E060DC2007E628E /* Build configuration list for PBXProject "OutlawSimd" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AE15E1BA1E060DC2007E628E;
+			productRefGroup = AE15E1C51E060DC2007E628E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE15E1C31E060DC2007E628E /* OutlawSimd */,
+				AE15E1CC1E060DC2007E628E /* OutlawSimdTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE15E1C21E060DC2007E628E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE15E1CB1E060DC2007E628E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE15E1BF1E060DC2007E628E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE93BF1522878F17008118D7 /* simd_float4x3+Outlaw.swift in Sources */,
+				AE93BF1322878F17008118D7 /* simd_float2x2+Outlaw.swift in Sources */,
+				AE93BF0922878F17008118D7 /* simd_double3x4+Outlaw.swift in Sources */,
+				AE93BF0222878F17008118D7 /* simd_double4x2+Outlaw.swift in Sources */,
+				AE93BF35228795D4008118D7 /* SIMD3+Outlaw.swift in Sources */,
+				AE93BF0E22878F17008118D7 /* simd_double4x4+Outlaw.swift in Sources */,
+				AE93BF1422878F17008118D7 /* simd_float4x4+Outlaw.swift in Sources */,
+				AE93BF1B22878F17008118D7 /* simd_float4x2+Outlaw.swift in Sources */,
+				AE93BEFE22878F17008118D7 /* simd_double3x2+Outlaw.swift in Sources */,
+				AE93BF37228795F6008118D7 /* SIMD4+Outlaw.swift in Sources */,
+				AE93BF1D22878F17008118D7 /* simd_float2x3+Outlaw.swift in Sources */,
+				AE93BF1A22878F17008118D7 /* simd_float3x4+Outlaw.swift in Sources */,
+				AE93BF0422878F17008118D7 /* simd_double2x3+Outlaw.swift in Sources */,
+				AE93BF0322878F17008118D7 /* simd_double2x4+Outlaw.swift in Sources */,
+				AE93BF0822878F17008118D7 /* simd_double3x3+Outlaw.swift in Sources */,
+				AE93BF0D22878F17008118D7 /* simd_double2x2+Outlaw.swift in Sources */,
+				AE93BF3B228796CB008118D7 /* ExtractableIndexes.swift in Sources */,
+				AE93BF2022878F17008118D7 /* simd_float3x2+Outlaw.swift in Sources */,
+				AE93BF39228796A2008118D7 /* ExtractableKeys.swift in Sources */,
+				AE93BF1922878F17008118D7 /* simd_float3x3+Outlaw.swift in Sources */,
+				AE93BF1C22878F17008118D7 /* simd_float2x4+Outlaw.swift in Sources */,
+				AE93BF0F22878F17008118D7 /* simd_double4x3+Outlaw.swift in Sources */,
+				AE93BF33228795C6008118D7 /* SIMD2+Outlaw.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE15E1C91E060DC2007E628E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE93BEA122878F07008118D7 /* double3Tests.swift in Sources */,
+				AE93BEC322878F07008118D7 /* float2x4Tests.swift in Sources */,
+				AE93BEC422878F07008118D7 /* int4Tests.swift in Sources */,
+				AE93BEA622878F07008118D7 /* double4Tests.swift in Sources */,
+				AE93BEAC22878F07008118D7 /* double4x3Tests.swift in Sources */,
+				AE93BEA022878F07008118D7 /* int2Tests.swift in Sources */,
+				AE93BEBF22878F07008118D7 /* double4x2Tests.swift in Sources */,
+				AE93BE9822878F07008118D7 /* uint3Tests.swift in Sources */,
+				AE93BEAE22878F07008118D7 /* uint4Tests.swift in Sources */,
+				AE93BEAD22878F07008118D7 /* double3x3Tests.swift in Sources */,
+				AE93BE9B22878F07008118D7 /* float4x2Tests.swift in Sources */,
+				AE93BEB522878F07008118D7 /* float4Tests.swift in Sources */,
+				AE93BEBE22878F07008118D7 /* float3x4Tests.swift in Sources */,
+				AE93BEB722878F07008118D7 /* uint2Tests.swift in Sources */,
+				AE93BEC822878F07008118D7 /* double2x2Tests.swift in Sources */,
+				AE93BEC022878F07008118D7 /* double3x2Tests.swift in Sources */,
+				AE93BEB622878F07008118D7 /* float2x3Tests.swift in Sources */,
+				AE93BEBD22878F07008118D7 /* float4x4Tests.swift in Sources */,
+				AE93BEBB22878F07008118D7 /* float4x3Tests.swift in Sources */,
+				AE93BEA522878F07008118D7 /* float2Tests.swift in Sources */,
+				AE93BEA922878F07008118D7 /* double2x3Tests.swift in Sources */,
+				AE93BE9F22878F07008118D7 /* double2x4Tests.swift in Sources */,
+				AE93BE9C22878F07008118D7 /* float3x2Tests.swift in Sources */,
+				AE93BEBC22878F07008118D7 /* float3x3Tests.swift in Sources */,
+				AE93BE9922878F07008118D7 /* double4x4Tests.swift in Sources */,
+				AE93BE9A22878F07008118D7 /* double3x4Tests.swift in Sources */,
+				AE93BEC222878F07008118D7 /* float3Tests.swift in Sources */,
+				AE93BEB322878F07008118D7 /* double2Tests.swift in Sources */,
+				AE93BEA222878F07008118D7 /* float2x2Tests.swift in Sources */,
+				AE93BEB422878F07008118D7 /* int3Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE15E1D01E060DC2007E628E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AE15E1C31E060DC2007E628E /* OutlawSimd */;
+			targetProxy = AE15E1CF1E060DC2007E628E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AE15E1D61E060DC2007E628E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE93BE5422878E7A008118D7 /* Molbie-Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		AE15E1D71E060DC2007E628E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE93BE5322878E7A008118D7 /* Molbie-Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		AE15E1D91E060DC2007E628E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		AE15E1DA1E060DC2007E628E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		AE15E1DC1E060DC2007E628E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		AE15E1DD1E060DC2007E628E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE15E1BE1E060DC2007E628E /* Build configuration list for PBXProject "OutlawSimd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE15E1D61E060DC2007E628E /* Debug */,
+				AE15E1D71E060DC2007E628E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE15E1D81E060DC2007E628E /* Build configuration list for PBXNativeTarget "OutlawSimd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE15E1D91E060DC2007E628E /* Debug */,
+				AE15E1DA1E060DC2007E628E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE15E1DB1E060DC2007E628E /* Build configuration list for PBXNativeTarget "OutlawSimdTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE15E1DC1E060DC2007E628E /* Debug */,
+				AE15E1DD1E060DC2007E628E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE15E1BB1E060DC2007E628E /* Project object */;
+}
